@@ -1,5 +1,6 @@
 package menus;
 
+import menuObjects.Button;
 import resources.ImageLoader;
 
 import java.awt.*;
@@ -13,6 +14,12 @@ public class PlayerMenu extends FullSizePanel{
 
     private PlayerMenu() {
         super();
+        Button button1 = new Button();
+        button1.setVisible(true);
+        button1.setLocation(400,400);
+        button1.setSize(200,200);
+
+        this.add(button1);
     }
 
 
