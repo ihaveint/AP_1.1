@@ -15,6 +15,7 @@ public class GamePanelController {
     }
 
     public static void shakeScreen() {
+        GamePanel.testBird.shake();
     }
 
     public void repaintPanel(){

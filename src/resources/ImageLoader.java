@@ -25,7 +25,7 @@ public class ImageLoader {
             hashMap.put("OK",ImageIO.read(new File("src/resources/OK.png")));
             hashMap.put("missile",ImageIO.read(new File("src/resources/missile.png")));
             hashMap.put("choose_menu",ImageIO.read(new File("src/resources/choose_menu.jpg")).getScaledInstance(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height,Image.SCALE_AREA_AVERAGING));
-            hashMap.put("chicken",ImageIO.read(new File("src/resources/BigChickenRed.png"))/*.getScaledInstance(300,300,Image.SCALE_AREA_AVERAGING)*/);
+            hashMap.put("chicken",ImageIO.read(new File("src/resources/BigChickenRed.png")).getScaledInstance(310/2,261/2,Image.SCALE_AREA_AVERAGING));
         }
         catch (Exception e){e.printStackTrace();}
     }

@@ -13,7 +13,8 @@ public class shoot implements Drawable{
     public int x , y;
     int shootWidth , shootHeight;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
-
+    String type = "shoot";
+    public boolean visible = true;
     public void loadBoxes(){
         try {
             Scanner input = new Scanner(new File("src/gameObjects/BulletBoxes.txt"));
@@ -41,7 +42,8 @@ public class shoot implements Drawable{
 
     public void update(){
         this.y -= 3;
-        if (this.y <= Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2){
+        if (visible && this.y <= Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2 && type == "Missile"){
+            visible = false;
             GamePanelController.shakeScreen();
 
         }
@@ -51,13 +53,14 @@ public class shoot implements Drawable{
 
     public void checkBarkhord(){
         if (hitChicken(GamePanel.testBird)){
-            GamePanel.testBird.die();
+            GamePanel.testBird.reduceHeart(25);
+//            GamePanel.testBird.die();
         }
     }
 
     @Override
     public void draw(Graphics g) {
-        g.drawImage(ImageLoader.getImage("RedBullet"),x-shootWidth/2,y-shootHeight/2,null);
+            g.drawImage(ImageLoader.getImage("RedBullet"), x - shootWidth / 2, y - shootHeight / 2, null);
     }
 
     public boolean hitChicken(SampleBird bird){
