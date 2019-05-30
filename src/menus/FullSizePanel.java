@@ -3,7 +3,7 @@ package menus;
 import javax.swing.*;
 import java.awt.*;
 
-public class FullSizePanel extends JPanel {
+public class FullSizePanel extends Panel {
     public FullSizePanel(){
 //        new FullSizePanel(true);
 

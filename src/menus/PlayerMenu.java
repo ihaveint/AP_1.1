@@ -3,6 +3,7 @@ package menus;
 import Listener.GameKeyListener;
 import Listener.GameMouseMotionListener;
 import menuObjects.Button;
+import resources.GlobalHashMap;
 import resources.ImageLoader;
 
 import java.awt.*;
@@ -25,11 +26,7 @@ public class PlayerMenu extends FullSizePanel{
         button1.addActionListener(e -> {
 
             GameFrame.getInstance().setCurrentPanel("GamePanel");
-
-            FullSizeFrame.hashMap.get("GamePanel").requestFocusInWindow();
-//            FullSizeFrame.hashMap.get("GamePanel").addKeyListener(GameKeyListener.getInstance());
-            GameFrame.getInstance().requestFocus();
-//            GameFrame.getInstance().revalidate();
+//            GameFrame.getInstance().requestFocus();
 
 
         });

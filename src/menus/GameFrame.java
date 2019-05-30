@@ -1,6 +1,7 @@
 package menus;
 
 import Listener.GameKeyListener;
+import resources.GlobalHashMap;
 import resources.Location;
 
 import java.awt.*;
@@ -20,15 +21,14 @@ public class GameFrame extends FullSizeFrame implements Runnable{
 
     private GameFrame() {
         super();
-        hashMap.put("GamePanel",GamePanel.getInstance());
-        hashMap.put("PlayerMenu",PlayerMenu.getInstance());
-        hashMap.put("choose_menu",ChoosePlayerMenu.getInstance());
+
+
         PlayerMenu.getInstance().setVisible(false);
-        this.getContentPane().add(hashMap.get("GamePanel"));
-        this.getContentPane().add(hashMap.get("PlayerMenu"));
-        this.getContentPane().add(hashMap.get("choose_menu"));
-        hashMap.get("PlayerMenu").setVisible(false);
-        hashMap.get("choose_menu").setVisible(false);
+        this.getContentPane().add(GlobalHashMap.getInstance().panelHashMap.get("GamePanel"));
+        this.getContentPane().add(GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu"));
+        this.getContentPane().add(GlobalHashMap.getInstance().panelHashMap.get("choose_menu"));
+        GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(false);
+        GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(false);
         currentPanel =  GamePanel.getInstance();
         this.addKeyListener(GameKeyListener.getInstance());
     }
