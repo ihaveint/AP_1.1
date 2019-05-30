@@ -1,6 +1,7 @@
 package menus;
 
 import Listener.GameMouseMotionListener;
+import menuObjects.Button;
 import resources.ImageLoader;
 import resources.Location;
 
@@ -19,6 +20,24 @@ public class ChoosePlayerMenu extends FullSizePanel{
         super();
         setCursor(null);
         this.addMouseMotionListener(GameMouseMotionListener.getInstance());
+
+        
+        Button ok_button = new Button();
+        ok_button.setLocation(400,400);
+        ok_button.setSize(resources.ImageLoader.getImage("OK").getWidth(null),resources.ImageLoader.getImage("OK").getHeight(null));
+        ok_button.setVisible(true);
+        ok_button.repaint();
+        ok_button.addActionListener(e -> {
+
+            GameFrame.getInstance().setCurrentPanel("PlayerMenu");
+
+            FullSizeFrame.hashMap.get("PlayerMenu").requestFocusInWindow();
+//            FullSizeFrame.hashMap.get("GamePanel").addKeyListener(GameKeyListener.getInstance());
+            PlayerMenu.getInstance().requestFocus();
+//            GameFrame.getInstance().revalidate();
+        });
+        this.add(ok_button);
+
     }
 
     @Override
