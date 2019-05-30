@@ -34,6 +34,7 @@ public class FullSizeFrame extends JFrame{
         if (currentPanel != null)
             currentPanel.setVisible(false);
         currentPanel = hashMap.get(name);
+//        hashMap.get(name).requestFocusInWindow();
         currentPanel.setVisible(true);
 
 

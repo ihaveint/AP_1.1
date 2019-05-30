@@ -1,5 +1,6 @@
 package menus;
 
+import Listener.GameKeyListener;
 import menuObjects.Button;
 import resources.ImageLoader;
 
@@ -19,7 +20,17 @@ public class PlayerMenu extends FullSizePanel{
         button1.setLocation(400,400);
 
         button1.setSize(resources.ImageLoader.getImage("OK").getWidth(null),resources.ImageLoader.getImage("OK").getHeight(null));
+        button1.addActionListener(e -> {
 
+            GameFrame.getInstance().setCurrentPanel("GamePanel");
+
+            FullSizeFrame.hashMap.get("GamePanel").requestFocusInWindow();
+//            FullSizeFrame.hashMap.get("GamePanel").addKeyListener(GameKeyListener.getInstance());
+            GameFrame.getInstance().requestFocus();
+//            GameFrame.getInstance().revalidate();
+
+
+        });
         this.add(button1);
     }
 

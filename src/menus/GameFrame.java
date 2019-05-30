@@ -25,6 +25,7 @@ public class GameFrame extends FullSizeFrame implements Runnable{
         PlayerMenu.getInstance().setVisible(false);
         this.getContentPane().add(hashMap.get("GamePanel"));
         this.getContentPane().add(hashMap.get("PlayerMenu"));
+        hashMap.get("PlayerMenu").setVisible(false);
         currentPanel =  GamePanel.getInstance();
         this.addKeyListener(GameKeyListener.getInstance());
     }

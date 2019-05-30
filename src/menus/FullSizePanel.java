@@ -10,7 +10,7 @@ public class FullSizePanel extends JPanel {
         this.setLayout(null);
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setVisible(true);
-
+        this.setFocusable(true);
 
 
     }
