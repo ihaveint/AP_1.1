@@ -60,13 +60,19 @@ public class shoot implements Drawable{
 
     @Override
     public void draw(Graphics g) {
+        if (visible) {
             g.drawImage(ImageLoader.getImage("RedBullet"), x - shootWidth / 2, y - shootHeight / 2, null);
+        }
     }
 
     public boolean hitChicken(SampleBird bird){
+        if (visible == false) return false;
         for (Rectangle rectangle : this.rectangles){
             if (bird.hit(new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2))){
+                visible = false;
+                bird.shake(false , 1000);
                 return true;
+
             }
 //            if (bird.hit(rectangle)){
 //                return true;

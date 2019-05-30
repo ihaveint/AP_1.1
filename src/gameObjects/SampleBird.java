@@ -13,7 +13,7 @@ public class SampleBird implements Drawable {
     ArrayList<Rectangle> rectangles = new ArrayList<>();
     double heart = 100;
     boolean visible = true;
-
+    long shakeTime;
     boolean died = false;
     public void loadBoxes(){
         try{
@@ -45,10 +45,10 @@ public class SampleBird implements Drawable {
     @Override
     public void draw(Graphics g) {
         long currentTime = System.currentTimeMillis();
-        if (visible && currentTime - shakeStartTime > 2000) {
+        if (visible && currentTime - shakeStartTime > shakeTime) {
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30, (int) y, null);
         }
-        if (currentTime - shakeStartTime <= 2000){
+        if (currentTime - shakeStartTime <= shakeTime){
             shakeX = Math.random() * 8;
             shakeY = Math.random() * 8;
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30 + (int)shakeX, (int) y + (int)shakeY, null);
@@ -91,8 +91,16 @@ public class SampleBird implements Drawable {
     }
     public long shakeStartTime;
 
-    public void shake() {
+    public void shake(boolean died , long shakeTime){
         shakeStartTime = System.currentTimeMillis();
-        died = true;
+        this.died = died;
+        this.shakeTime = shakeTime;
+    }
+    public void shake(){
+        shake(true);
+    }
+    public void shake(boolean died) {
+        shake(died,2000);
+
     }
 }
