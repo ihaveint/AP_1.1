@@ -18,7 +18,7 @@ public class GamePanel extends FullSizePanel {
     public int spaceShipWidth , spaceShipHeight;
     public int shootWidth , shootHeight;
     SpaceShip spaceShip = new SpaceShip();
-    public static SampleBird testBird = new SampleBird();
+    public static SampleBird testBird = new SampleBird(0,100);
 
     public static GamePanel ourInstance = new GamePanel();
 

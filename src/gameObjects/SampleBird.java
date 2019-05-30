@@ -11,6 +11,7 @@ public class SampleBird implements Drawable {
 
     double x , y;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
+    HpBar hp = new HpBar();
     double heart = 100;
     boolean visible = true;
     long shakeTime;
@@ -36,22 +37,35 @@ public class SampleBird implements Drawable {
         catch (Exception e){}
     }
     public SampleBird(){
+        this(0,0);
+//        loadBoxes();
+//        shakeStartTime = -500000;
+
+    }
+    public SampleBird(int x , int y){
+        this.x = x;
+        this.y = y;
+
         loadBoxes();
         shakeStartTime = -500000;
-
     }
 
     public double shakeX , shakeY;
     @Override
     public void draw(Graphics g) {
+
+        hp.x = (int)this.x + 40;
+        hp.y = (int)this.y - 120;
         long currentTime = System.currentTimeMillis();
         if (visible && currentTime - shakeStartTime > shakeTime) {
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30, (int) y, null);
+            hp.draw(g);
         }
         if (currentTime - shakeStartTime <= shakeTime){
             shakeX = Math.random() * 8;
             shakeY = Math.random() * 8;
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30 + (int)shakeX, (int) y + (int)shakeY, null);
+            hp.draw(g);
         }else{
             shakeY = shakeX = 0;
             if (died){
