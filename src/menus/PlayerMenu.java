@@ -21,7 +21,7 @@ public class PlayerMenu extends FullSizePanel{
         super.paintComponent(g);
 
         g.drawImage(ImageLoader.getImage("BackGround"),0,0,null);
-        g.drawImage(ImageLoader.getImage("LogoName"),0,0,null);
+        g.drawImage(ImageLoader.getImage("LogoName"),Toolkit.getDefaultToolkit().getScreenSize().width/2 - ImageLoader.getImage("LogoName").getWidth(null)/2,0,null);
 
     }
 }
