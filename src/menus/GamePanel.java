@@ -45,7 +45,8 @@ public class GamePanel extends FullSizePanel {
         System.out.println(shoots.size());
 
         for (shoot tir : shoots){
-            g.drawImage(ImageLoader.getImage("RedBullet"),tir.x-shootWidth/2,tir.y-shootHeight/2,null);
+            tir.draw(g);
+//            g.drawImage(ImageLoader.getImage("RedBullet"),tir.x-shootWidth/2,tir.y-shootHeight/2,null);
             tir.update();
         }
 

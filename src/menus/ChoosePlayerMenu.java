@@ -21,7 +21,7 @@ public class ChoosePlayerMenu extends FullSizePanel{
         setCursor(null);
         this.addMouseMotionListener(GameMouseMotionListener.getInstance());
 
-        
+
         Button ok_button = new Button();
         ok_button.setLocation(400,400);
         ok_button.setSize(resources.ImageLoader.getImage("OK").getWidth(null),resources.ImageLoader.getImage("OK").getHeight(null));
