@@ -16,11 +16,11 @@ public class GameMouseMotionListener implements MouseMotionListener {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        Controllers.MouseController.getInstance().setCursorLocation("GamePanel",e.getX(),e.getY());
+        Controllers.MouseController.getInstance().setCursorLocation("GamePanel",e.getXOnScreen(),e.getYOnScreen());
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        Controllers.MouseController.getInstance().setCursorLocation("GamePanel",e.getX(),e.getY());
+        Controllers.MouseController.getInstance().setCursorLocation("GamePanel",e.getXOnScreen(),e.getYOnScreen());
     }
 }

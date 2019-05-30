@@ -43,14 +43,12 @@ public class GamePanel extends FullSizePanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-//        g.drawImage(ImageLoader.getImage("BackGround"),0,0,null);
         MovingBackGround.getInstance().draw(g);
 
         System.out.println(shoots.size());
 
         for (shoot tir : shoots){
             tir.draw(g);
-//            g.drawImage(ImageLoader.getImage("RedBullet"),tir.x-shootWidth/2,tir.y-shootHeight/2,null);
             tir.update();
         }
 
@@ -63,9 +61,6 @@ public class GamePanel extends FullSizePanel {
             missile.update();
         }
         spaceShip.draw(g);
-//        g.drawImage(ImageLoader.getImage("SpaceShip"),mouseLocation.x - spaceShipWidth/2,mouseLocation.y - spaceShipHeight/2,null);
-
-//        g.drawImage(ImageLoader.getImage("Mouse"),mouseLocation.x,mouseLocation.y,null);
 
     }
 }

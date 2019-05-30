@@ -29,10 +29,7 @@ public class ChoosePlayerMenu extends FullSizePanel{
         ok_button.setVisible(true);
         ok_button.repaint();
         ok_button.addActionListener(e -> {
-
             GameFrame.getInstance().setCurrentPanel("PlayerMenu");
-//            GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").requestFocusInWindow();
-            PlayerMenu.getInstance().requestFocus();
         });
         this.add(ok_button);
 
@@ -41,10 +38,7 @@ public class ChoosePlayerMenu extends FullSizePanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-
-
         g.drawImage(ImageLoader.getImage("choose_menu"),0,0,null);
-        g.drawImage(ImageLoader.getImage("Mouse"),GamePanel.mouseLocation.x-ImageLoader.getImage("Mouse").getWidth(null)/2,GamePanel.mouseLocation.y-ImageLoader.getImage("Mouse").getHeight(null)/2,null);
+//        g.drawImage(ImageLoader.getImage("Mouse"),GamePanel.mouseLocation.x-ImageLoader.getImage("Mouse").getWidth(null)/2,GamePanel.mouseLocation.y-ImageLoader.getImage("Mouse").getHeight(null)/2,null);
     }
 }

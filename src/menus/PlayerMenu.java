@@ -2,6 +2,7 @@ package menus;
 
 import Listener.GameKeyListener;
 import Listener.GameMouseMotionListener;
+import gameObjects.MovingBackGround;
 import menuObjects.Button;
 import resources.GlobalHashMap;
 import resources.ImageLoader;
@@ -24,9 +25,7 @@ public class PlayerMenu extends FullSizePanel{
 
         button1.setSize(resources.ImageLoader.getImage("OK").getWidth(null),resources.ImageLoader.getImage("OK").getHeight(null));
         button1.addActionListener(e -> {
-
             GameFrame.getInstance().setCurrentPanel("GamePanel");
-
         });
         this.addMouseMotionListener(GameMouseMotionListener.getInstance());
         this.add(button1);
@@ -37,10 +36,9 @@ public class PlayerMenu extends FullSizePanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-
-        g.drawImage(ImageLoader.getImage("BackGround"),0,0,null);
+        MovingBackGround.getInstance().draw(g);
         g.drawImage(ImageLoader.getImage("LogoName"),Toolkit.getDefaultToolkit().getScreenSize().width/2 - ImageLoader.getImage("LogoName").getWidth(null)/2,0,null);
-        g.drawImage(ImageLoader.getImage("Mouse"),GamePanel.mouseLocation.x-ImageLoader.getImage("Mouse").getWidth(null)/2,GamePanel.mouseLocation.y-ImageLoader.getImage("Mouse").getHeight(null)/2,null);
+        g.drawImage(ImageLoader.getImage("Mouse"),GamePanel.mouseLocation.x-ImageLoader.getImage("Mouse").getWidth(null)/2,GamePanel.mouseLocation.y-ImageLoader.getImage("Mouse").getHeight(null),null);
 
     }
 }
