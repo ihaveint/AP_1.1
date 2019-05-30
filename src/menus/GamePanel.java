@@ -4,6 +4,7 @@ import Listener.GameKeyListener;
 import Listener.GameMouseListener;
 import Listener.GameMouseMotionListener;
 import gameObjects.Missile;
+import gameObjects.MovingBackGround;
 import gameObjects.SpaceShip;
 import gameObjects.shoot;
 import resources.ImageLoader;
@@ -42,7 +43,8 @@ public class GamePanel extends FullSizePanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.drawImage(ImageLoader.getImage("BackGround"),0,0,null);
+//        g.drawImage(ImageLoader.getImage("BackGround"),0,0,null);
+        MovingBackGround.getInstance().draw(g);
 
         System.out.println(shoots.size());
 
