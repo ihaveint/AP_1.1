@@ -3,10 +3,7 @@ package menus;
 import Listener.GameKeyListener;
 import Listener.GameMouseListener;
 import Listener.GameMouseMotionListener;
-import gameObjects.Missile;
-import gameObjects.MovingBackGround;
-import gameObjects.SpaceShip;
-import gameObjects.shoot;
+import gameObjects.*;
 import resources.ImageLoader;
 import resources.Location;
 
@@ -21,6 +18,7 @@ public class GamePanel extends FullSizePanel {
     public int spaceShipWidth , spaceShipHeight;
     public int shootWidth , shootHeight;
     SpaceShip spaceShip = new SpaceShip();
+    public static SampleBird testBird = new SampleBird();
 
     public static GamePanel ourInstance = new GamePanel();
 
@@ -48,8 +46,12 @@ public class GamePanel extends FullSizePanel {
         System.out.println(shoots.size());
 
         for (shoot tir : shoots){
-            tir.draw(g);
+            tir.checkBarkhord();
+        }
+        for (shoot tir : shoots){
             tir.update();
+            tir.draw(g);
+
         }
 
         int missileWidth , missileHeight;
@@ -60,7 +62,13 @@ public class GamePanel extends FullSizePanel {
             g.drawImage(ImageLoader.getImage("missile"),missile.x-missileWidth/2,missile.y - missileHeight/2 , null);
             missile.update();
         }
+
         spaceShip.draw(g);
+        testBird.update();
+        testBird.draw(g);
+
+
+
 
     }
 }
