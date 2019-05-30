@@ -25,7 +25,7 @@ public class KeyController {
     public int getSpaceKey(){
         return KeyEvent.VK_SPACE;
     }
-
+    public int getMissleKey() {return KeyEvent.VK_M;}
     public void pressed(int keyCode){
         long now = System.currentTimeMillis();
         long diff = now - lastShootMillis;
@@ -35,8 +35,8 @@ public class KeyController {
                 lastShootMillis = now;
             }
         }
-        else{
-
+        else if (keyCode == getMissleKey()){
+            GamePanelController.getInstance().newMissile(GamePanel.mouseLocation.x,GamePanel.mouseLocation.y);
         }
     }
 }

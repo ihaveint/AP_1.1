@@ -23,6 +23,7 @@ public class ImageLoader {
             hashMap.put("RedBullet",ImageIO.read(new File("src/resources/RedBullet1.png")));
             hashMap.put("LogoName",ImageIO.read(new File("src/resources/Ci5logo.png")));
             hashMap.put("OK",ImageIO.read(new File("src/resources/OK.png")));
+            hashMap.put("missile",ImageIO.read(new File("src/resources/missile.png")));
 
         }
         catch (Exception e){e.printStackTrace();}

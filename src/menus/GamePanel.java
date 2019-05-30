@@ -2,6 +2,8 @@ package menus;
 
 import Listener.GameKeyListener;
 import Listener.GameMouseMotionListener;
+import gameObjects.Missile;
+import gameObjects.SpaceShip;
 import gameObjects.shoot;
 import resources.ImageLoader;
 import resources.Location;
@@ -12,10 +14,13 @@ import java.util.List;
 
 public class GamePanel extends FullSizePanel {
     public static ArrayList<shoot> shoots = new ArrayList<shoot>();
+    public static ArrayList<Missile> missiles = new ArrayList<>();
     public static Location mouseLocation = new Location(700,700);
-    private int spaceShipWidth , spaceShipHeight;
-    private int shootWidth , shootHeight;
-    private static GamePanel ourInstance = new GamePanel();
+    public int spaceShipWidth , spaceShipHeight;
+    public int shootWidth , shootHeight;
+    SpaceShip spaceShip = new SpaceShip();
+
+    public static GamePanel ourInstance = new GamePanel();
 
     public static GamePanel getInstance() {
         return ourInstance;
@@ -44,7 +49,16 @@ public class GamePanel extends FullSizePanel {
             tir.update();
         }
 
-        g.drawImage(ImageLoader.getImage("SpaceShip"),mouseLocation.x - spaceShipWidth/2,mouseLocation.y - spaceShipHeight/2,null);
+        int missileWidth , missileHeight;
+        missileWidth = ImageLoader.getImage("missile").getWidth(null);
+        missileHeight = ImageLoader.getImage("missile").getHeight(null);
+
+        for (Missile missile : missiles){
+            g.drawImage(ImageLoader.getImage("missile"),missile.x-missileWidth/2,missile.y - missileHeight/2 , null);
+            missile.update();
+        }
+        spaceShip.draw(g);
+//        g.drawImage(ImageLoader.getImage("SpaceShip"),mouseLocation.x - spaceShipWidth/2,mouseLocation.y - spaceShipHeight/2,null);
 
 //        g.drawImage(ImageLoader.getImage("Mouse"),mouseLocation.x,mouseLocation.y,null);
 

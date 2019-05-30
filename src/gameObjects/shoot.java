@@ -1,5 +1,9 @@
 package gameObjects;
 
+import Controllers.GamePanelController;
+
+import java.awt.*;
+
 public class shoot {
     public int x , y;
 
@@ -10,5 +14,9 @@ public class shoot {
 
     public void update() {
         this.y -= 3;
+        if (this.y <= Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2){
+            GamePanelController.shakeScreen();
+
+        }
     }
 }

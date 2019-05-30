@@ -1,5 +1,6 @@
 package Controllers;
 
+import gameObjects.Missile;
 import gameObjects.shoot;
 import menus.GamePanel;
 
@@ -12,6 +13,10 @@ public class GamePanelController {
 
     private GamePanelController() {
     }
+
+    public static void shakeScreen() {
+    }
+
     public void repaintPanel(){
 
         //GamePanel.getInstance().repaint();
@@ -21,4 +26,7 @@ public class GamePanelController {
         GamePanel.shoots.add(new shoot(x , y));
     }
 
+    public void newMissile(int x, int y) {
+        GamePanel.missiles.add(new Missile(x,y));
+    }
 }
