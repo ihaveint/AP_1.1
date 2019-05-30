@@ -26,8 +26,6 @@ public class PlayerMenu extends FullSizePanel{
         button1.addActionListener(e -> {
 
             GameFrame.getInstance().setCurrentPanel("GamePanel");
-//            GameFrame.getInstance().requestFocus();
-
 
         });
         this.addMouseMotionListener(GameMouseMotionListener.getInstance());

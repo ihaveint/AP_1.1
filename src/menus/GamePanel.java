@@ -1,6 +1,7 @@
 package menus;
 
 import Listener.GameKeyListener;
+import Listener.GameMouseListener;
 import Listener.GameMouseMotionListener;
 import gameObjects.Missile;
 import gameObjects.SpaceShip;
@@ -34,6 +35,7 @@ public class GamePanel extends FullSizePanel {
         shootHeight = ImageLoader.getImage("RedBullet").getHeight(null);
         this.addMouseMotionListener(GameMouseMotionListener.getInstance());
         this.addKeyListener(GameKeyListener.getInstance());
+        this.addMouseListener(GameMouseListener.getInstance());
     }
 
     @Override

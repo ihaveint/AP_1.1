@@ -20,12 +20,12 @@ public class KeyController {
     }
 
     private KeyController() {
-        hashMap.put("GamePanel", GamePanel.getInstance());
+
     }
     public int getSpaceKey(){
         return KeyEvent.VK_SPACE;
     }
-    public int getMissleKey() {return KeyEvent.VK_M;}
+    public int getMissileKey() {return KeyEvent.VK_M;}
     public void pressed(int keyCode){
         long now = System.currentTimeMillis();
         long diff = now - lastShootMillis;
@@ -35,7 +35,7 @@ public class KeyController {
                 lastShootMillis = now;
             }
         }
-        else if (keyCode == getMissleKey()){
+        else if (keyCode == getMissileKey()){
             GamePanelController.getInstance().newMissile(GamePanel.mouseLocation.x,GamePanel.mouseLocation.y);
         }
     }
