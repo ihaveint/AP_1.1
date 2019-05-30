@@ -22,10 +22,13 @@ public class GameFrame extends FullSizeFrame implements Runnable{
         super();
         hashMap.put("GamePanel",GamePanel.getInstance());
         hashMap.put("PlayerMenu",PlayerMenu.getInstance());
+        hashMap.put("choose_menu",ChoosePlayerMenu.getInstance());
         PlayerMenu.getInstance().setVisible(false);
         this.getContentPane().add(hashMap.get("GamePanel"));
         this.getContentPane().add(hashMap.get("PlayerMenu"));
+        this.getContentPane().add(hashMap.get("choose_menu"));
         hashMap.get("PlayerMenu").setVisible(false);
+        hashMap.get("choose_menu").setVisible(false);
         currentPanel =  GamePanel.getInstance();
         this.addKeyListener(GameKeyListener.getInstance());
     }
