@@ -54,7 +54,7 @@ public class SampleBird implements Drawable {
     @Override
     public void draw(Graphics g) {
 
-        hp.x = (int)this.x + 40;
+        hp.x = (int)this.x + 80;
         hp.y = (int)this.y - 120;
         long currentTime = System.currentTimeMillis();
         if (visible && currentTime - shakeStartTime > shakeTime) {
