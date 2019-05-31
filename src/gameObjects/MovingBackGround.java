@@ -21,8 +21,16 @@ public class MovingBackGround implements Drawable{
 
     @Override
     public void draw(Graphics g) {
+        draw(g,false);
+
+
+    }
+
+    public void draw(Graphics g, boolean paused) {
+
         g.drawImage(ImageLoader.getImage("BackGround"),0,firstY,null);
         g.drawImage(ImageLoader.getImage("BackGround"),0,secondY,null);
+        if (paused) return ;
         firstY += 1;
         secondY += 1;
         if (secondY >= height){
@@ -31,6 +39,5 @@ public class MovingBackGround implements Drawable{
         if (firstY >= height){
             firstY = -height;
         }
-
     }
 }

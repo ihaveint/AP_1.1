@@ -1,5 +1,6 @@
 package gameObjects;
 
+import menus.GamePanel;
 import resources.ImageLoader;
 import resources.RectLoader;
 
@@ -43,6 +44,7 @@ public class SampleBird implements Drawable {
     @Override
     public void draw(Graphics g) {
 
+
         hp.x = (int)this.x + 80;
         hp.y = (int)this.y - 120;
 
@@ -51,7 +53,6 @@ public class SampleBird implements Drawable {
         if (died) {
             long diff = System.currentTimeMillis() - shakeStartTime;
             float percentage = (float) 1.0001 - (float) diff / (shakeTime);
-//            System.out.println(percentage);
             float alpha = Math.min((float) 1, percentage);
             alpha = Math.max((float)0.01,alpha);
             AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
@@ -67,8 +68,13 @@ public class SampleBird implements Drawable {
             hp.draw(g);
         }
         if (currentTime - shakeStartTime <= shakeTime){
-            shakeX = Math.random() * 8;
-            shakeY = Math.random() * 8;
+            if (GamePanel.paused){
+                shakeX = shakeY = 0;
+            }
+            else {
+                shakeX = Math.random() * 8;
+                shakeY = Math.random() * 8;
+            }
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30 + (int)shakeX, (int) y + (int)shakeY, null);
             hp.draw(g);
         }else{
@@ -81,7 +87,8 @@ public class SampleBird implements Drawable {
 
     }
 
-    public void update(){
+    public void update(boolean paused){
+        if (paused) return ;
         x+= 0.5;
     }
 

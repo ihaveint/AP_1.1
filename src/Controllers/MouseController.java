@@ -26,6 +26,7 @@ public class MouseController {
     }
 
     public void setCursorLocation(String componentName, int x , int y){
+        if (GamePanel.paused) return ;
         Object component =  hashMap.get(componentName);
         Class<?> someClass = component.getClass();
         Field mouseLocation = null;

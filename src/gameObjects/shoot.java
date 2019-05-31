@@ -28,7 +28,8 @@ public class shoot implements Drawable{
         loadBoxes();
     }
 
-    public void update(){
+    public void update(boolean paused){
+        if (paused) return ;
         this.y -= 3;
         if (visible && this.y <= Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2 && type == "Missile"){
             visible = false;

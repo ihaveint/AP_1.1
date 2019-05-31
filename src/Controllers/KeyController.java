@@ -26,6 +26,7 @@ public class KeyController {
         return KeyEvent.VK_SPACE;
     }
     public int getMissileKey() {return KeyEvent.VK_M;}
+    public int getEscapeKey() {return KeyEvent.VK_ESCAPE;}
     public void pressed(int keyCode){
         long now = System.currentTimeMillis();
         long diff = now - lastShootMillis;
@@ -37,6 +38,11 @@ public class KeyController {
         }
         else if (keyCode == getMissileKey()){
             GamePanelController.getInstance().newMissile(GamePanel.mouseLocation.x,GamePanel.mouseLocation.y);
+        }
+        else if (keyCode == getEscapeKey()){
+//            GamePanel.pause();
+            GamePanel.switchState();
+
         }
     }
 }

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePanel extends FullSizePanel {
+    public static boolean paused = false;
     public static ArrayList<shoot> shoots = new ArrayList<shoot>();
     public static ArrayList<Missile> missiles = new ArrayList<>();
     public static Location mouseLocation = new Location(700,700);
@@ -37,18 +38,28 @@ public class GamePanel extends FullSizePanel {
         this.addMouseListener(GameMouseListener.getInstance());
     }
 
+    public static void pause() {
+        paused = true;
+    }
+
+    public static void switchState() {
+        if (paused) paused = false;
+        else paused = true;
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        MovingBackGround.getInstance().draw(g);
 
+        MovingBackGround.getInstance().draw(g,paused);
+//        if (paused) return ;
 
         for (shoot tir : shoots){
             tir.checkBarkhord();
         }
         for (shoot tir : shoots){
-            tir.update();
+            tir.update(paused);
             tir.draw(g);
 
         }
@@ -60,11 +71,11 @@ public class GamePanel extends FullSizePanel {
         for (Missile missile : missiles){
             if (missile.visible)
                 g.drawImage(ImageLoader.getImage("missile"),missile.x-missileWidth/2,missile.y - missileHeight/2 , null);
-            missile.update();
+            missile.update(paused);
         }
 
         spaceShip.draw(g);
-        testBird.update();
+        testBird.update(paused);
         testBird.draw(g);
 
 
