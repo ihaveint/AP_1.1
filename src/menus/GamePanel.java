@@ -20,8 +20,7 @@ public class GamePanel extends FullSizePanel {
     public int spaceShipWidth , spaceShipHeight;
     public int shootWidth , shootHeight;
     public static Resume resumeAnimation = new Resume();
-    SpaceShip spaceShip = new SpaceShip();
-//    public static SampleBird testBird = new SampleBird(0,100);
+    public SpaceShip spaceShip = new SpaceShip();
     public static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
     public static GamePanel ourInstance = new GamePanel();
 
@@ -51,30 +50,13 @@ public class GamePanel extends FullSizePanel {
         if (paused) {
             paused = false;
             resumeAnimation.currentPercentage = 0;
-//            SpaceShip.resumePerecnt = 0;
             SpaceShip.showResume = true;
         }
         else paused = true;
     }
-    boolean firstTime = true;
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (firstTime){
-            firstTime = false;
-            while (spaceShip.test.currentPercentage <= 1 || spaceShip.test.currentLayer <= 12){
-                spaceShip.test.draw(g);
-                spaceShip.test.update();
-            }
-            while (resumeAnimation.currentPercentage <= 1 ){
-                resumeAnimation.draw(g);
-                resumeAnimation.update();
-            }
-            resumeAnimation.currentPercentage = 0;
-            resumeAnimation.currentLayer = 1;
-            spaceShip.test.currentPercentage = 0;
-            spaceShip.test.currentLayer = 1;
-        }
 
         MovingBackGround.getInstance().draw(g,paused);
 
@@ -99,7 +81,6 @@ public class GamePanel extends FullSizePanel {
         }
 
 
-//        testBird.draw(g);
         for (SampleBird sampleBird : sampleBirds){
             sampleBird.draw(g);
         }
@@ -121,7 +102,6 @@ public class GamePanel extends FullSizePanel {
         for (SampleBird sampleBird : sampleBirds){
             sampleBird.update(paused || spaceShip.showResume);
         }
-//        testBird.update(paused||spaceShip.showResume);
 
 
 

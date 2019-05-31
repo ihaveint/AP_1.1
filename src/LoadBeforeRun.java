@@ -22,6 +22,19 @@ public class LoadBeforeRun {
                     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
                     GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(true);
+
+                    while (GamePanel.getInstance().spaceShip.test.currentPercentage <= 1 || GamePanel.getInstance().spaceShip.test.currentLayer <= 12){
+                        GamePanel.getInstance().spaceShip.test.draw(g2d);
+                        GamePanel.getInstance().spaceShip.test.update();
+                    }
+                    while (GamePanel.getInstance().resumeAnimation.currentPercentage <= 1 ){
+                        GamePanel.getInstance().resumeAnimation.draw(g2d);
+                        GamePanel.getInstance().resumeAnimation.update();
+                    }
+                    GamePanel.getInstance().resumeAnimation.currentPercentage = 0;
+                    GamePanel.getInstance().resumeAnimation.currentLayer = 1;
+                    GamePanel.getInstance().spaceShip.test.currentPercentage = 0;
+                    GamePanel.getInstance().spaceShip.test.currentLayer = 1;
                     GamePanel.getInstance().paintComponent(g2d);
                     GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(false);
                     GameFrame.getInstance().revalidate();

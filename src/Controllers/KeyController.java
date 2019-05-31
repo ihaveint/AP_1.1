@@ -42,7 +42,6 @@ public class KeyController {
             GamePanelController.getInstance().newMissile((int)GamePanel.mouseLocation.x,(int)GamePanel.mouseLocation.y);
         }
         else if (keyCode == getEscapeKey()){
-//            GamePanel.pause();
             GamePanel.switchState();
 
         }
