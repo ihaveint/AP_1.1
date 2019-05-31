@@ -1,6 +1,8 @@
 package Controllers;
 
 import gameObjects.SpaceShip;
+import menus.FullSizeFrame;
+import menus.GameFrame;
 import menus.GamePanel;
 
 import javax.swing.*;
@@ -29,6 +31,7 @@ public class KeyController {
     public int getMissileKey() {return KeyEvent.VK_M;}
     public int getEscapeKey() {return KeyEvent.VK_ESCAPE;}
     public void pressed(int keyCode){
+        if (GameFrame.currentPanel != GamePanel.getInstance()) return;
         if (SpaceShip.showResume) return ;
         long now = System.currentTimeMillis();
         long diff = now - lastShootMillis;

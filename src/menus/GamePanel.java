@@ -29,6 +29,7 @@ public class GamePanel extends FullSizePanel {
     }
 
     public GamePanel(){
+        super();
 
         sampleBirds.add(new SampleBird(0,100));
 
@@ -37,9 +38,9 @@ public class GamePanel extends FullSizePanel {
         spaceShipHeight = ImageLoader.getImage("SpaceShip").getHeight(null);
         shootWidth = ImageLoader.getImage("RedBullet").getWidth(null);
         shootHeight = ImageLoader.getImage("RedBullet").getHeight(null);
-        this.addMouseMotionListener(GameMouseMotionListener.getInstance());
-        this.addKeyListener(GameKeyListener.getInstance());
-        this.addMouseListener(GameMouseListener.getInstance());
+//        this.addMouseMotionListener(GameMouseMotionListener.getInstance());
+//        this.addKeyListener(GameKeyListener.getInstance());
+//        this.addMouseListener(GameMouseListener.getInstance());
     }
 
     public static void pause() {

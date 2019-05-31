@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.HashMap;
 
 public class FullSizeFrame extends JFrame{
-    static JPanel currentPanel;
+    public static JPanel currentPanel;
 
     public FullSizeFrame() {
         this.setLayout(null);
@@ -22,10 +22,7 @@ public class FullSizeFrame extends JFrame{
         if (currentPanel != null)
             currentPanel.setVisible(false);
         currentPanel = GlobalHashMap.getInstance().panelHashMap.get(name);
-
         currentPanel.setVisible(true);
         currentPanel.requestFocus();
-
-
     }
 }
