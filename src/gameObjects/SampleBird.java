@@ -109,6 +109,9 @@ public class SampleBird implements Drawable {
     public void shake(boolean died , long shakeTime){
         shakeStartTime = System.currentTimeMillis();
         this.died = died;
+        if (died){
+            hp.percentage = 0;
+        }
         this.shakeTime = shakeTime;
     }
     public void shake(){
