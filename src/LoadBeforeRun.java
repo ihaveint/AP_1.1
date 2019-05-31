@@ -36,8 +36,6 @@ public class LoadBeforeRun {
 
 
 
-
-
                     g2d.dispose();
 
             } while (GameFrame.bs.contentsRestored());

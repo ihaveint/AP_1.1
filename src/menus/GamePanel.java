@@ -77,6 +77,7 @@ public class GamePanel extends FullSizePanel {
 
 
         for (shoot tir : shoots){
+
             tir.checkBarkhord();
         }
         for (shoot tir : shoots){

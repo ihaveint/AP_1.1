@@ -34,12 +34,12 @@ public class KeyController {
         long diff = now - lastShootMillis;
         if (keyCode == getSpaceKey()){
             if (diff >= 200){
-                GamePanelController.getInstance().newShoot(GamePanel.mouseLocation.x,GamePanel.mouseLocation.y);
+                GamePanelController.getInstance().newShoot((int)GamePanel.mouseLocation.x,(int)GamePanel.mouseLocation.y);
                 lastShootMillis = now;
             }
         }
         else if (keyCode == getMissileKey()){
-            GamePanelController.getInstance().newMissile(GamePanel.mouseLocation.x,GamePanel.mouseLocation.y);
+            GamePanelController.getInstance().newMissile((int)GamePanel.mouseLocation.x,(int)GamePanel.mouseLocation.y);
         }
         else if (keyCode == getEscapeKey()){
 //            GamePanel.pause();

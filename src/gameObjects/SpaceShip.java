@@ -31,14 +31,14 @@ public class SpaceShip implements Drawable{
     public void draw(Graphics g) {
         Location drawLocation = getLocation();
 
-        g.drawImage(ImageLoader.getImage("SpaceShip"),drawLocation.x,drawLocation.y,null);
+        g.drawImage(ImageLoader.getImage("SpaceShip"),(int)drawLocation.x,(int)drawLocation.y,null);
         if (showWarning)
             test.draw(g);
         if (showResume)
             GamePanel.resumeAnimation.draw(g);
     }
     public static Location getLocation(){
-        return new Location(mouseLocation.x - GamePanel.getInstance().spaceShipWidth/2,mouseLocation.y - GamePanel.getInstance().spaceShipHeight/2);
+        return new Location((int)mouseLocation.x - GamePanel.getInstance().spaceShipWidth/2,(int)mouseLocation.y - GamePanel.getInstance().spaceShipHeight/2);
 
     }
 
@@ -76,7 +76,7 @@ public class SpaceShip implements Drawable{
     public boolean hit(SampleBird sampleBird){
         if (showResume) return false;
         for (Rectangle rectangle : rectangles){
-            if (sampleBird.hit(new Rectangle(rectangle.xmin + getLocation().x , rectangle.ymin + getLocation().y , rectangle.xmax + getLocation().x ,  rectangle.ymax + getLocation().y))) {
+            if (sampleBird.hit(new Rectangle(rectangle.xmin + (int)getLocation().x , rectangle.ymin +(int) getLocation().y , rectangle.xmax + (int)getLocation().x ,  rectangle.ymax + (int)getLocation().y))) {
                 return true;
 
             }

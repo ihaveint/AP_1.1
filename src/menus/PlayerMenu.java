@@ -38,7 +38,7 @@ public class PlayerMenu extends FullSizePanel{
 
         MovingBackGround.getInstance().draw(g);
         g.drawImage(ImageLoader.getImage("LogoName"),Toolkit.getDefaultToolkit().getScreenSize().width/2 - ImageLoader.getImage("LogoName").getWidth(null)/2,0,null);
-        g.drawImage(ImageLoader.getImage("Mouse"),GamePanel.mouseLocation.x-ImageLoader.getImage("Mouse").getWidth(null)/2,GamePanel.mouseLocation.y-ImageLoader.getImage("Mouse").getHeight(null),null);
+        g.drawImage(ImageLoader.getImage("Mouse"),(int)GamePanel.mouseLocation.x-ImageLoader.getImage("Mouse").getWidth(null)/2,(int)GamePanel.mouseLocation.y-ImageLoader.getImage("Mouse").getHeight(null),null);
 
     }
 }

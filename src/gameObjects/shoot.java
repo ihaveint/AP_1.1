@@ -1,6 +1,7 @@
 package gameObjects;
 
 import Controllers.GamePanelController;
+import menus.GameFrame;
 import menus.GamePanel;
 import resources.ImageLoader;
 import resources.RectLoader;
@@ -16,6 +17,7 @@ public class shoot implements Drawable{
     ArrayList<Rectangle> rectangles = new ArrayList<>();
     String type = "shoot";
     public boolean visible = true;
+    Rectangle whichRect;
     public void loadBoxes(){
         rectangles = RectLoader.loadRectangles("src/GameObjects/BulletBoxes.txt");
 
@@ -40,6 +42,7 @@ public class shoot implements Drawable{
     public void checkBarkhord(){
         if (hitChicken(GamePanel.testBird)){
             GamePanel.testBird.reduceHeart(25);
+            GamePanel.testBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
 //            GamePanel.testBird.die();
         }
     }
@@ -55,7 +58,10 @@ public class shoot implements Drawable{
         if (visible == false) return false;
         if (bird.died) return false;
         for (Rectangle rectangle : this.rectangles){
-            if (bird.hit(new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2))){
+            Rectangle check = new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2);
+
+            if (bird.hit(check)){
+                whichRect = check;
                 visible = false;
                 bird.shake(false , 300);
                 return true;

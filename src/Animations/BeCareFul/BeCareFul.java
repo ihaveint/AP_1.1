@@ -25,7 +25,7 @@ public class BeCareFul implements Drawable {
 
 
 //        g.drawImage(ImageLoader.getImage("firstLayer"), spaceShipLocation.x,spaceShipLocation.y - 100,null);
-        g.drawImage(ImageLoader.getImage("layer" +(int)currentLayer), spaceShipLocation.x,spaceShipLocation.y - 100,null);
+        g.drawImage(ImageLoader.getImage("layer" +(int)currentLayer), (int)spaceShipLocation.x,(int)spaceShipLocation.y - 100,null);
 
 
     }

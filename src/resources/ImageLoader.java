@@ -34,6 +34,7 @@ public class ImageLoader {
                 hashMap.put("layer" + i ,ImageIO.read(new File("src/Animations/BeCareful/layer" + i + ".png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));
             }
             hashMap.put("resume",ImageIO.read(new File("src/Animations/Resume/resuming.png")).getScaledInstance(2100/4,1500/4,Image.SCALE_AREA_AVERAGING));
+            hashMap.put("bandage",ImageIO.read(new File("src/resources/bandage.png")).getScaledInstance(260/15,280/15,Image.SCALE_AREA_AVERAGING));
         }
         catch (Exception e){e.printStackTrace();}
     }

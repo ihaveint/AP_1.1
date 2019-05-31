@@ -2,6 +2,7 @@ package gameObjects;
 
 import menus.GamePanel;
 import resources.ImageLoader;
+import resources.Location;
 import resources.RectLoader;
 
 import java.awt.*;
@@ -13,6 +14,7 @@ public class SampleBird implements Drawable {
 
     double x , y;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
+    ArrayList<Location> bandageLocations = new ArrayList<>();
     HpBar hp = new HpBar();
     double heart = 100;
     boolean visible = true;
@@ -65,6 +67,9 @@ public class SampleBird implements Drawable {
         long currentTime = System.currentTimeMillis();
         if (visible && currentTime - shakeStartTime > shakeTime) {
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30, (int) y, null);
+            for (Location bandageLocation : bandageLocations){
+                g.drawImage(ImageLoader.getImage("bandage"),(int)bandageLocation.x,(int)bandageLocation.y,null);
+            }
             hp.draw(g);
         }
         if (currentTime - shakeStartTime <= shakeTime){
@@ -76,6 +81,9 @@ public class SampleBird implements Drawable {
                 shakeY = Math.random() * 8;
             }
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30 + (int)shakeX, (int) y + (int)shakeY, null);
+            for (Location bandageLocation : bandageLocations){
+                g.drawImage(ImageLoader.getImage("bandage"),(int)bandageLocation.x,(int)bandageLocation.y,null);
+            }
             hp.draw(g);
         }else{
             shakeY = shakeX = 0;
@@ -97,6 +105,9 @@ public class SampleBird implements Drawable {
     public void update(boolean paused){
         if (paused) return ;
         x+= 0.5;
+        for (Location bandageLocation : bandageLocations){
+            bandageLocation.x += 0.5;
+        }
     }
 
     public boolean hit(Rectangle b){
@@ -145,5 +156,9 @@ public class SampleBird implements Drawable {
     public void shake(boolean died) {
         shake(died,2000);
 
+    }
+
+    public void addBandate(int x, int y) {
+        bandageLocations.add(new Location(x-ImageLoader.getImage("bandage").getWidth(null)/2,y-ImageLoader.getImage("bandage").getHeight(null)/2 ));
     }
 }

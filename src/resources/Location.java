@@ -1,7 +1,7 @@
 package resources;
 
 public class Location {
-    public int x , y;
+    public double x , y;
     public Location(){
 
     }
