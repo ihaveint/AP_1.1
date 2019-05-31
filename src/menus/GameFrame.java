@@ -18,12 +18,11 @@ public class GameFrame extends FullSizeFrame implements Runnable{
     public static GameFrame getInstance() {
         return ourInstance;
     }
-    class loadThread extends Thread{
-        public void run(){
-            currentPanel = LoadPanel.getInstance();
-//            if (LoadPanel.getInstance().hp.percentage >= 100) stop();
-        }
-    }
+//    class loadThread extends Thread{
+//        public void run(){
+//            currentPanel = LoadPanel.getInstance();
+//        }
+//    }
     private GameFrame() {
         super();
 
@@ -33,12 +32,12 @@ public class GameFrame extends FullSizeFrame implements Runnable{
         this.getContentPane().add(GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu"));
         this.getContentPane().add(GlobalHashMap.getInstance().panelHashMap.get("choose_menu"));
         this.getContentPane().add(GlobalHashMap.getInstance().panelHashMap.get("LoadPanel"));
-        Thread loadThread = new loadThread();
-        loadThread.start();
 
+        this.getContentPane().add(LoadPanel.getInstance());
+        currentPanel = LoadPanel.getInstance();
+//        Thread loadThread = new loadThread();
+//        loadThread.start();
 
-//        currentPanel =  GamePanel.getInstance();
-//        currentPanel =  PlayerMenu.getInstance();
         this.addKeyListener(GameKeyListener.getInstance());
     }
 
@@ -65,6 +64,7 @@ public class GameFrame extends FullSizeFrame implements Runnable{
 
         createBufferStrategy(3);
         BufferStrategy bs = getBufferStrategy();
+        Graphics2D g2d = (Graphics2D)bs.getDrawGraphics();
         while (running){
 
 
@@ -123,7 +123,7 @@ public class GameFrame extends FullSizeFrame implements Runnable{
                     GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(false);
                     fl2 = true;
                 }
-                if (System.currentTimeMillis()-startTime >= 10000 && !fl ){
+                if (System.currentTimeMillis()-startTime >= 5000 && !fl ){
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
                     setCurrentPanel("PlayerMenu");
                     fl = true;
@@ -131,10 +131,6 @@ public class GameFrame extends FullSizeFrame implements Runnable{
 
 
                 getInstance().paintComponents(g2d);
-
-//                g2d.setColor(Color.GREEN);
-//                g2d.fillOval(test.x,test.y,20,20);
-
 
 
                 g2d.dispose();

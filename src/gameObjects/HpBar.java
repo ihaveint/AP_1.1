@@ -21,6 +21,11 @@ public class HpBar implements Drawable{
     public HpBar(){
         loadBoxes();
     }
+    public HpBar(int x , int y){
+        this.x = x;
+        this.y = y;
+        loadBoxes();
+    }
     @Override
     public void draw(Graphics g) {
         g.drawImage(resources.ImageLoader.getImage("HP2"),x,y,null);

@@ -12,18 +12,6 @@ public class Main {
 
         main_window.start();
 
-//        main_window.setCurrentPanel("PlayerMenu");
-
-
-        //        main_window.setCurrentPanel("choose_menu");
-
-
-
-//        FullSizeFrame loadFrame = new FullSizeFrame();
-//        LoadPanel loadPanel = new LoadPanel();
-//
-//        loadFrame.add(loadPanel);
-//        loadPanel.setVisible(true);
 
 
 
