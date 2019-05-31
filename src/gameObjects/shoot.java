@@ -70,7 +70,7 @@ public class shoot implements Drawable{
         for (Rectangle rectangle : this.rectangles){
             if (bird.hit(new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2))){
                 visible = false;
-                bird.shake(false , 1000);
+                bird.shake(false , 300);
                 return true;
 
             }
