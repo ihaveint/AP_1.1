@@ -53,13 +53,13 @@ public class GamePanel extends FullSizePanel {
 
 
         MovingBackGround.getInstance().draw(g,paused);
-//        if (paused) return ;
+
 
         for (shoot tir : shoots){
             tir.checkBarkhord();
         }
         for (shoot tir : shoots){
-            tir.update(paused);
+
             tir.draw(g);
 
         }
@@ -71,13 +71,22 @@ public class GamePanel extends FullSizePanel {
         for (Missile missile : missiles){
             if (missile.visible)
                 g.drawImage(ImageLoader.getImage("missile"),missile.x-missileWidth/2,missile.y - missileHeight/2 , null);
-            missile.update(paused);
         }
 
+
+        testBird.draw(g);
         spaceShip.draw(g);
+        for (shoot tir : shoots){
+            tir.update(paused);
+
+        }
+
+        for (Missile missile : missiles){
+            missile.update(paused);
+        }
         spaceShip.update();
         testBird.update(paused);
-        testBird.draw(g);
+
 
 
 

@@ -86,6 +86,12 @@ public class SampleBird implements Drawable {
         heart = Math.max(heart,0);
 
 
+        AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1);
+
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setComposite(ac);
+
+
     }
 
     public void update(boolean paused){
