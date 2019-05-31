@@ -15,6 +15,7 @@ public class SampleBird implements Drawable {
     double x , y;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
     ArrayList<Location> bandageLocations = new ArrayList<>();
+    int bandageWidth , bandageHeight;
     HpBar hp = new HpBar();
     double heart = 100;
     boolean visible = true;
@@ -40,6 +41,8 @@ public class SampleBird implements Drawable {
 
         loadBoxes();
         shakeStartTime = -500000;
+        bandageWidth =  ImageLoader.getImage("bandage").getWidth(null);
+        bandageHeight =  ImageLoader.getImage("bandage").getHeight(null);
     }
 
     public double shakeX , shakeY;
@@ -68,7 +71,7 @@ public class SampleBird implements Drawable {
         if (visible && currentTime - shakeStartTime > shakeTime) {
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30, (int) y, null);
             for (Location bandageLocation : bandageLocations){
-                g.drawImage(ImageLoader.getImage("bandage"),(int)bandageLocation.x,(int)bandageLocation.y,null);
+                g.drawImage(ImageLoader.getImage("bandage"),(int)bandageLocation.x - bandageWidth/2,(int)bandageLocation.y - bandageHeight/ 2,null);
             }
             hp.draw(g);
         }
@@ -82,7 +85,7 @@ public class SampleBird implements Drawable {
             }
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30 + (int)shakeX, (int) y + (int)shakeY, null);
             for (Location bandageLocation : bandageLocations){
-                g.drawImage(ImageLoader.getImage("bandage"),(int)bandageLocation.x,(int)bandageLocation.y,null);
+                g.drawImage(ImageLoader.getImage("bandage"),(int)bandageLocation.x - bandageWidth/2,(int)bandageLocation.y - bandageHeight/ 2,null);
             }
             hp.draw(g);
         }else{
