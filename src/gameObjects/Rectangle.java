@@ -2,7 +2,7 @@ package gameObjects;
 
 public class Rectangle {
     int xmin , ymin , xmax , ymax;
-    Rectangle(int a , int b , int c , int d){
+    public Rectangle(int a , int b , int c , int d){
         this.xmin = a;
         this.ymin = b;
         this.xmax = c;

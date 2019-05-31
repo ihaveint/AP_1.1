@@ -3,6 +3,7 @@ package gameObjects;
 import Controllers.GamePanelController;
 import menus.GamePanel;
 import resources.ImageLoader;
+import resources.RectLoader;
 
 import java.awt.*;
 import java.io.File;
@@ -16,20 +17,7 @@ public class shoot implements Drawable{
     String type = "shoot";
     public boolean visible = true;
     public void loadBoxes(){
-        try {
-            Scanner input = new Scanner(new File("src/gameObjects/BulletBoxes.txt"));
-            while (input.hasNextLine()){
-                int xmin , ymin , xmax , ymax;
-                String line = input.nextLine();
-                String []arr = line.split(" ");
-                xmin = Integer.parseInt(arr[0]);
-                ymin = Integer.parseInt(arr[1]);
-                xmax = Integer.parseInt(arr[2]);
-                ymax = Integer.parseInt(arr[3]);
-                rectangles.add(new Rectangle(xmin,ymin,xmax,ymax));
-            }
-        }
-        catch(Exception e){e.printStackTrace();}
+        rectangles = RectLoader.loadRectangles("src/GameObjects/BulletBoxes.txt");
 
     }
     public shoot(int x , int y){

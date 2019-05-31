@@ -1,6 +1,7 @@
 package gameObjects;
 
 import resources.ImageLoader;
+import resources.RectLoader;
 
 import java.awt.*;
 import java.io.File;
@@ -17,29 +18,17 @@ public class SampleBird implements Drawable {
     long shakeTime;
     boolean died = false;
     public void loadBoxes(){
-        try{
-            Scanner input = new Scanner(new File("src/GameObjects/sampleBox2.txt"));
-
-            while(input.hasNextLine()){
-                int xmin , ymin , xmax , ymax;
-                String line = input.nextLine();
-                String []arr = line.split(" ");
-                xmin = Integer.parseInt(arr[0]);
-                ymin = Integer.parseInt(arr[1]);
-                xmax = Integer.parseInt(arr[2]);
-                ymax = Integer.parseInt(arr[3]);
-                this.rectangles.add(new Rectangle(xmin/2,ymin/2,xmax/2,ymax/2));
-
-            }
-
-            input.close();
+        rectangles = RectLoader.loadRectangles("src/GameObjects/sampleBox2.txt");
+        for (Rectangle rect : rectangles){
+            rect.xmin /= 2;
+            rect.ymin /= 2;
+            rect.xmax /= 2;
+            rect.ymax /= 2;
         }
-        catch (Exception e){}
+
     }
     public SampleBird(){
         this(0,0);
-//        loadBoxes();
-//        shakeStartTime = -500000;
 
     }
     public SampleBird(int x , int y){
