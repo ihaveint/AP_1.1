@@ -53,6 +53,7 @@ public class shoot implements Drawable{
 
     public boolean hitChicken(SampleBird bird){
         if (visible == false) return false;
+        if (bird.died) return false;
         for (Rectangle rectangle : this.rectangles){
             if (bird.hit(new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2))){
                 visible = false;

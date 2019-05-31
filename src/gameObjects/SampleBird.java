@@ -44,7 +44,7 @@ public class SampleBird implements Drawable {
     @Override
     public void draw(Graphics g) {
 
-
+        if (heart < 0) return ;
         hp.x = (int)this.x + 80;
         hp.y = (int)this.y - 120;
 
@@ -83,6 +83,7 @@ public class SampleBird implements Drawable {
                 visible = false;
             }
         }
+        heart = Math.max(heart,0);
 
 
     }
