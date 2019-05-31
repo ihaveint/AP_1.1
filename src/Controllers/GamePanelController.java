@@ -1,6 +1,8 @@
 package Controllers;
 
 import gameObjects.Missile;
+import gameObjects.Rectangle;
+import gameObjects.SampleBird;
 import gameObjects.shoot;
 import menus.GamePanel;
 
@@ -15,7 +17,10 @@ public class GamePanelController {
     }
 
     public static void shakeScreen() {
-        GamePanel.testBird.shake();
+        for (SampleBird sampleBird : GamePanel.sampleBirds) {
+            sampleBird.shake();
+        }
+//        GamePanel.testBird.shake();
     }
 
     public void repaintPanel(){

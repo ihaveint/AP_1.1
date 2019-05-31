@@ -47,13 +47,22 @@ public class SpaceShip implements Drawable{
         if (showWarning)
             test.update();
 
-        if (hit(GamePanel.testBird) && GamePanel.testBird.died == false){
-            if (!showWarning){
-                test.currentPercentage = 0;
-                test.currentLayer = 1;
+        for (SampleBird sampleBird : GamePanel.sampleBirds) {
+            if (hit(sampleBird) && sampleBird.died == false){
+                if (!showWarning){
+                    test.currentPercentage = 0;
+                    test.currentLayer = 1;
+                }
+                showWarning = true;
             }
-            showWarning = true;
         }
+//        if (hit(GamePanel.testBird) && GamePanel.testBird.died == false){
+//            if (!showWarning){
+//                test.currentPercentage = 0;
+//                test.currentLayer = 1;
+//            }
+//            showWarning = true;
+//        }
         if (showWarning){
             warningPercent += 0.0025;
             if( warningPercent >= 1){

@@ -21,8 +21,8 @@ public class GamePanel extends FullSizePanel {
     public int shootWidth , shootHeight;
     public static Resume resumeAnimation = new Resume();
     SpaceShip spaceShip = new SpaceShip();
-    public static SampleBird testBird = new SampleBird(0,100);
-
+//    public static SampleBird testBird = new SampleBird(0,100);
+    public static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
     public static GamePanel ourInstance = new GamePanel();
 
     public static GamePanel getInstance() {
@@ -31,6 +31,9 @@ public class GamePanel extends FullSizePanel {
 
     public GamePanel(){
 
+        sampleBirds.add(new SampleBird(0,100));
+
+        sampleBirds.add(new SampleBird(600,300));
         spaceShipWidth = ImageLoader.getImage("SpaceShip").getWidth(null);
         spaceShipHeight = ImageLoader.getImage("SpaceShip").getHeight(null);
         shootWidth = ImageLoader.getImage("RedBullet").getWidth(null);
@@ -96,7 +99,11 @@ public class GamePanel extends FullSizePanel {
         }
 
 
-        testBird.draw(g);
+//        testBird.draw(g);
+        for (SampleBird sampleBird : sampleBirds){
+            sampleBird.draw(g);
+        }
+
         spaceShip.draw(g);
         if (SpaceShip.showResume) {
             resumeAnimation.draw(g);
@@ -111,7 +118,10 @@ public class GamePanel extends FullSizePanel {
             missile.update(paused||spaceShip.showResume);
         }
         spaceShip.update();
-        testBird.update(paused||spaceShip.showResume);
+        for (SampleBird sampleBird : sampleBirds){
+            sampleBird.update(paused || spaceShip.showResume);
+        }
+//        testBird.update(paused||spaceShip.showResume);
 
 
 

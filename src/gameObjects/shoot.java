@@ -40,11 +40,17 @@ public class shoot implements Drawable{
     }
 
     public void checkBarkhord(){
-        if (hitChicken(GamePanel.testBird)){
-            GamePanel.testBird.reduceHeart(25);
-            GamePanel.testBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
-//            GamePanel.testBird.die();
+        for (SampleBird sampleBird : GamePanel.sampleBirds) {
+            if (hitChicken(sampleBird)){
+                sampleBird.reduceHeart(25);
+                sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
+            }
         }
+//            if (hitChicken(GamePanel.testBird)){
+//            GamePanel.testBird.reduceHeart(25);
+//            GamePanel.testBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
+//
+//            }
     }
 
     @Override
