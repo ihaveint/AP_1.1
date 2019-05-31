@@ -23,20 +23,14 @@ public class LoadBeforeRun {
 
                     GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(true);
                     GamePanel.getInstance().paintComponent(g2d);
+                    GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(false);
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
                     PlayerMenu.getInstance().paintComponent(g2d);
+                    GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(false);
                     GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(true);
                     ChoosePlayerMenu.getInstance().paintComponent(g2d);
-                    GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(false);
-                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(false);
-                    GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(false);
+//                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(true);
 
-//                    try {
-//                        Thread.sleep(3000);
-//                    }
-//                    catch(Exception e){e.printStackTrace();}
-
-                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(true);
 
 
 

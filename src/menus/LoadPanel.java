@@ -22,7 +22,7 @@ public class LoadPanel extends FullSizePanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         hp.draw(g);
-        hp.percentage += 0.003;
+        hp.percentage += 0.002;
         hp.percentage = Math.min(1,hp.percentage);
 
     }
