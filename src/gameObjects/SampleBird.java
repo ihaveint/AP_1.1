@@ -45,6 +45,22 @@ public class SampleBird implements Drawable {
 
         hp.x = (int)this.x + 80;
         hp.y = (int)this.y - 120;
+
+
+
+        if (died) {
+            long diff = System.currentTimeMillis() - shakeStartTime;
+            float percentage = (float) 1.0001 - (float) diff / (shakeTime);
+//            System.out.println(percentage);
+            float alpha = Math.min((float) 1, percentage);
+            alpha = Math.max((float)0.01,alpha);
+            AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
+
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setComposite(ac);
+
+        }
+
         long currentTime = System.currentTimeMillis();
         if (visible && currentTime - shakeStartTime > shakeTime) {
             g.drawImage(ImageLoader.getImage("chicken"), (int) x + 30, (int) y, null);
@@ -81,7 +97,10 @@ public class SampleBird implements Drawable {
 
 
     public void die() {
+
         visible = false;
+        shake(true,300);
+
     }
 
     public void reduceHeart(int value) {
