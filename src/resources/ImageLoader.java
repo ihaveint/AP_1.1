@@ -33,6 +33,7 @@ public class ImageLoader {
             for (int i = 1 ; i <= 11 ; i ++){
                 hashMap.put("layer" + i ,ImageIO.read(new File("src/Animations/BeCareful/layer" + i + ".png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));
             }
+            hashMap.put("resume",ImageIO.read(new File("src/Animations/Resume/resuming.png")).getScaledInstance(2100/4,1500/4,Image.SCALE_AREA_AVERAGING));
         }
         catch (Exception e){e.printStackTrace();}
     }

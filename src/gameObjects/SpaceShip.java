@@ -15,7 +15,9 @@ import java.util.ArrayList;
 public class SpaceShip implements Drawable{
 
     boolean showWarning = false;
-    double warningPercent = 0;
+    public static boolean showResume = false;
+    public static double resumePerecnt = 0;
+    public double warningPercent = 0;
     public BeCareFul test;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
     public void loadBoxes(){
@@ -32,6 +34,8 @@ public class SpaceShip implements Drawable{
         g.drawImage(ImageLoader.getImage("SpaceShip"),drawLocation.x,drawLocation.y,null);
         if (showWarning)
             test.draw(g);
+        if (showResume)
+            GamePanel.resumeAnimation.draw(g);
     }
     public static Location getLocation(){
         return new Location(mouseLocation.x - GamePanel.getInstance().spaceShipWidth/2,mouseLocation.y - GamePanel.getInstance().spaceShipHeight/2);
@@ -57,6 +61,16 @@ public class SpaceShip implements Drawable{
                 showWarning = false;
             }
         }
+
+        if (showResume){
+            resumePerecnt += 0.0012;
+            if (resumePerecnt >= 1){
+                resumePerecnt = 0;
+                showResume = false;
+            }
+        }
+
+
 
     }
     public boolean hit(SampleBird sampleBird){

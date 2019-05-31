@@ -1,5 +1,6 @@
 package menus;
 
+import Animations.Resume.Resume;
 import Listener.GameKeyListener;
 import Listener.GameMouseListener;
 import Listener.GameMouseMotionListener;
@@ -18,6 +19,7 @@ public class GamePanel extends FullSizePanel {
     public static Location mouseLocation = new Location(700,700);
     public int spaceShipWidth , spaceShipHeight;
     public int shootWidth , shootHeight;
+    public static Resume resumeAnimation = new Resume();
     SpaceShip spaceShip = new SpaceShip();
     public static SampleBird testBird = new SampleBird(0,100);
 
@@ -43,7 +45,11 @@ public class GamePanel extends FullSizePanel {
     }
 
     public static void switchState() {
-        if (paused) paused = false;
+        if (paused) {
+            paused = false;
+            SpaceShip.resumePerecnt = 0;
+            SpaceShip.showResume = true;
+        }
         else paused = true;
     }
     boolean firstTime = true;
@@ -56,6 +62,12 @@ public class GamePanel extends FullSizePanel {
                 spaceShip.test.draw(g);
                 spaceShip.test.update();
             }
+            while (resumeAnimation.currentPercentage <= 1 ){
+                resumeAnimation.draw(g);
+                resumeAnimation.update();
+            }
+            resumeAnimation.currentPercentage = 0;
+            resumeAnimation.currentLayer = 1;
             spaceShip.test.currentPercentage = 0;
             spaceShip.test.currentLayer = 1;
         }
@@ -84,6 +96,10 @@ public class GamePanel extends FullSizePanel {
 
         testBird.draw(g);
         spaceShip.draw(g);
+        if (SpaceShip.showResume) {
+            resumeAnimation.draw(g);
+            resumeAnimation.update();
+        }
         for (shoot tir : shoots){
             tir.update(paused);
 

@@ -124,8 +124,8 @@ public class GameFrame extends FullSizeFrame implements Runnable{
                     fl2 = true;
                 }
                 if (System.currentTimeMillis()-startTime >= 5000 && !fl ){
-                    GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
-                    setCurrentPanel("PlayerMenu");
+                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(true);
+                    setCurrentPanel("choose_menu");
                     fl = true;
                 }
 
