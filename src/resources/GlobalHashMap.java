@@ -19,6 +19,7 @@ public class GlobalHashMap {
         panelHashMap.put("PlayerMenu", PlayerMenu.getInstance());
         panelHashMap.put("choose_menu", ChoosePlayerMenu.getInstance());
         panelHashMap.put("FullSizePanel",new FullSizePanel());
+        panelHashMap.put("LoadPanel",LoadPanel.getInstance());
 
     }
 

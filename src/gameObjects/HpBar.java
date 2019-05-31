@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class HpBar implements Drawable{
     int x , y;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
-    double percentage = 1;
+    public double percentage = 1;
     public void loadBoxes(){
         rectangles = RectLoader.loadRectangles("src/GameObjects/HpBar.txt");
         for (Rectangle rect : rectangles){
