@@ -46,11 +46,19 @@ public class GamePanel extends FullSizePanel {
         if (paused) paused = false;
         else paused = true;
     }
-
+    boolean firstTime = true;
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
+        if (firstTime){
+            firstTime = false;
+            while (spaceShip.test.currentPercentage <= 1 || spaceShip.test.currentLayer <= 12){
+                spaceShip.test.draw(g);
+                spaceShip.test.update();
+            }
+            spaceShip.test.currentPercentage = 0;
+            spaceShip.test.currentLayer = 1;
+        }
 
         MovingBackGround.getInstance().draw(g,paused);
 

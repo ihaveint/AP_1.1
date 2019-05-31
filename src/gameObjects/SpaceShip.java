@@ -16,7 +16,7 @@ public class SpaceShip implements Drawable{
 
     boolean showWarning = false;
     double warningPercent = 0;
-    BeCareFul test;
+    public BeCareFul test;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
     public void loadBoxes(){
         rectangles = RectLoader.loadRectangles("src/GameObjects/SpaceShipBoxes.txt");
@@ -44,10 +44,13 @@ public class SpaceShip implements Drawable{
             test.update();
 
         if (hit(GamePanel.testBird)){
+            if (!showWarning){
+                test.currentPercentage = 0;
+            }
             showWarning = true;
         }
         if (showWarning){
-            warningPercent += 0.003;
+            warningPercent += 0.0025;
             if( warningPercent >= 1){
                 warningPercent = 0;
                 showWarning = false;

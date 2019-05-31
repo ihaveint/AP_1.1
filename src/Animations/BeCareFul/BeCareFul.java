@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class BeCareFul implements Drawable {
 
     public double currentPercentage = 0;
-
+    public double currentLayer = 1;
     @Override
     public void draw(Graphics g) {
 
@@ -24,7 +24,8 @@ public class BeCareFul implements Drawable {
         g2d.setComposite(ac);
 
 
-        g.drawImage(ImageLoader.getImage("firstLayer"), spaceShipLocation.x,spaceShipLocation.y - 100,null);
+//        g.drawImage(ImageLoader.getImage("firstLayer"), spaceShipLocation.x,spaceShipLocation.y - 100,null);
+        g.drawImage(ImageLoader.getImage("layer" +(int)currentLayer), spaceShipLocation.x,spaceShipLocation.y - 100,null);
 
 
     }
@@ -32,5 +33,6 @@ public class BeCareFul implements Drawable {
     public void update() {
         if (currentPercentage <= 1)
             currentPercentage += 0.005;
+        currentLayer += 0.03;
     }
 }
