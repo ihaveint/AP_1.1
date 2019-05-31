@@ -97,6 +97,7 @@ public class SampleBird implements Drawable {
 
     public void reduceHeart(int value) {
         this.heart -= value;
+        hp.percentage -= 0.25;
         if (this.heart <= 0){
             this.die();
         }else{
