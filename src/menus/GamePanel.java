@@ -47,7 +47,8 @@ public class GamePanel extends FullSizePanel {
     public static void switchState() {
         if (paused) {
             paused = false;
-            SpaceShip.resumePerecnt = 0;
+            resumeAnimation.currentPercentage = 0;
+//            SpaceShip.resumePerecnt = 0;
             SpaceShip.showResume = true;
         }
         else paused = true;
@@ -101,15 +102,15 @@ public class GamePanel extends FullSizePanel {
             resumeAnimation.update();
         }
         for (shoot tir : shoots){
-            tir.update(paused);
+            tir.update(paused||spaceShip.showResume);
 
         }
 
         for (Missile missile : missiles){
-            missile.update(paused);
+            missile.update(paused||spaceShip.showResume);
         }
         spaceShip.update();
-        testBird.update(paused);
+        testBird.update(paused||spaceShip.showResume);
 
 
 

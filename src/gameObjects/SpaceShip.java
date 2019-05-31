@@ -47,7 +47,7 @@ public class SpaceShip implements Drawable{
         if (showWarning)
             test.update();
 
-        if (hit(GamePanel.testBird)){
+        if (hit(GamePanel.testBird) && GamePanel.testBird.died == false){
             if (!showWarning){
                 test.currentPercentage = 0;
                 test.currentLayer = 1;
@@ -63,9 +63,9 @@ public class SpaceShip implements Drawable{
         }
 
         if (showResume){
-            resumePerecnt += 0.0012;
-            if (resumePerecnt >= 1){
-                resumePerecnt = 0;
+            resumeAnimation.currentPercentage += 0.0012;
+            if (resumeAnimation.currentPercentage >= 1){
+                resumeAnimation.currentPercentage = 0;
                 showResume = false;
             }
         }
@@ -74,6 +74,7 @@ public class SpaceShip implements Drawable{
 
     }
     public boolean hit(SampleBird sampleBird){
+        if (showResume) return false;
         for (Rectangle rectangle : rectangles){
             if (sampleBird.hit(new Rectangle(rectangle.xmin + getLocation().x , rectangle.ymin + getLocation().y , rectangle.xmax + getLocation().x ,  rectangle.ymax + getLocation().y))) {
                 return true;

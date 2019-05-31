@@ -22,7 +22,7 @@ public class Resume implements Drawable {
         g2d.setComposite(ac);
 
 
-        g.drawImage(ImageLoader.getImage("resume"), 100,100,null);
+        g.drawImage(ImageLoader.getImage("resume"), 600,-100,null);
 
 
 
@@ -30,7 +30,7 @@ public class Resume implements Drawable {
 
     public void update() {
         if (currentPercentage <= 1)
-            currentPercentage += 0.005;
+            currentPercentage += 0.002;
         currentLayer += 0.03;
     }
 }

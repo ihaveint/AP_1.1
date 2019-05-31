@@ -100,6 +100,7 @@ public class SampleBird implements Drawable {
     }
 
     public boolean hit(Rectangle b){
+        if (SpaceShip.showResume) return false;
         for (Rectangle rectangle : this.rectangles)
         {
 
