@@ -130,6 +130,7 @@ public class SampleBird implements Drawable {
     public long shakeStartTime;
 
     public void shake(boolean died , long shakeTime){
+
         shakeStartTime = System.currentTimeMillis();
         this.died = died;
         if (died){
@@ -138,6 +139,7 @@ public class SampleBird implements Drawable {
         this.shakeTime = shakeTime;
     }
     public void shake(){
+        if (died) return; // this line should be removed ...
         shake(true);
     }
     public void shake(boolean died) {
