@@ -26,6 +26,6 @@ public class HpBar implements Drawable{
         g.drawImage(resources.ImageLoader.getImage("HP2"),x,y,null);
         Rectangle rect = rectangles.get(0);
         g.setColor(Color.GREEN);
-        g.fillRect(x+rect.xmin,y+rect.ymin ,(int)((rect.xmax - rect.xmin ) * percentage),rect.ymax - rect.ymin - 1);
+        g.fillRect(x+rect.xmin,y+rect.ymin ,(int)((rect.xmax - rect.xmin ) * percentage),rect.ymax - rect.ymin);
     }
 }

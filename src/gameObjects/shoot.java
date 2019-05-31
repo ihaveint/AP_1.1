@@ -33,10 +33,7 @@ public class shoot implements Drawable{
         if (visible && this.y <= Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2 && type == "Missile"){
             visible = false;
             GamePanelController.shakeScreen();
-
         }
-
-
     }
 
     public void checkBarkhord(){
