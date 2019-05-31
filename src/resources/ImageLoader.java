@@ -28,6 +28,10 @@ public class ImageLoader {
             hashMap.put("chicken",ImageIO.read(new File("src/resources/BigChickenRed.png")).getScaledInstance(310/2,261/2,Image.SCALE_AREA_AVERAGING));
             hashMap.put("HP",ImageIO.read(new File("src/resources/hp_bar.png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));
             hashMap.put("HP2",ImageIO.read(new File("src/resources/hp_bar2.png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));
+            hashMap.put("firstLayer",ImageIO.read(new File("src/Animations/BeCareful/firstLayer.png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));
+            for (int i = 1 ; i <= 11 ; i ++){
+                hashMap.put("layer" + i ,ImageIO.read(new File("src/Animations/BeCareful/layer" + i + ".png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));
+            }
         }
         catch (Exception e){e.printStackTrace();}
     }

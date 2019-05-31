@@ -61,9 +61,6 @@ public class shoot implements Drawable{
                 return true;
 
             }
-//            if (bird.hit(rectangle)){
-//                return true;
-//            }
         }
         return false;
 

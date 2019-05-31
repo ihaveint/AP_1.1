@@ -75,9 +75,7 @@ public class GamePanel extends FullSizePanel {
         }
 
         spaceShip.draw(g);
-//        if (spaceShip.hit(testBird)){
-
-//        }
+        spaceShip.update();
         testBird.update(paused);
         testBird.draw(g);
 
