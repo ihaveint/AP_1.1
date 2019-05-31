@@ -21,7 +21,7 @@ public class PlayerMenu extends FullSizePanel{
         setCursor(null);
         Button button1 = new Button();
         button1.setVisible(true);
-        button1.setLocation(400,400);
+        button1.setLocation(50,800);
 
         button1.setSize(resources.ImageLoader.getImage("OK").getWidth(null),resources.ImageLoader.getImage("OK").getHeight(null));
         button1.addActionListener(e -> {
