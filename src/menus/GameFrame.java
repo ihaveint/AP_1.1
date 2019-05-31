@@ -18,13 +18,21 @@ public class GameFrame extends FullSizeFrame implements Runnable{
     public static GameFrame getInstance() {
         return ourInstance;
     }
-//    class loadThread extends Thread{
-//        public void run(){
-//            currentPanel = LoadPanel.getInstance();
-//        }
-//    }
+    class loadThread extends Thread{
+        public void run(){
+            while(LoadPanel.getInstance().hp.percentage < 1){
+                LoadPanel.getInstance().repaint();
+            }
+            stop();
+        }
+    }
+
+    public static BufferStrategy bs;
     private GameFrame() {
         super();
+
+        createBufferStrategy(3);
+        bs = getBufferStrategy();
 
 
         PlayerMenu.getInstance().setVisible(false);
@@ -35,8 +43,8 @@ public class GameFrame extends FullSizeFrame implements Runnable{
 
         this.getContentPane().add(LoadPanel.getInstance());
         currentPanel = LoadPanel.getInstance();
-//        Thread loadThread = new loadThread();
-//        loadThread.start();
+        Thread loadThread = new loadThread();
+        loadThread.start();
 
         this.addKeyListener(GameKeyListener.getInstance());
     }
@@ -62,9 +70,6 @@ public class GameFrame extends FullSizeFrame implements Runnable{
         final long Optimal_Time = 1_000_000_000 /Target_fps;
         int frames = 0;
 
-        createBufferStrategy(3);
-        BufferStrategy bs = getBufferStrategy();
-        Graphics2D g2d = (Graphics2D)bs.getDrawGraphics();
         while (running){
 
 
@@ -109,25 +114,6 @@ public class GameFrame extends FullSizeFrame implements Runnable{
                 Graphics2D g2d = (Graphics2D) bs.getDrawGraphics();
 
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-                if (fl2 == false){
-
-                    GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(true);
-                    GamePanel.getInstance().paintComponent(g2d);
-                    GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
-                    PlayerMenu.getInstance().paintComponent(g2d);
-                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(true);
-                    ChoosePlayerMenu.getInstance().paintComponent(g2d);
-                    GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(false);
-                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(false);
-                    GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(false);
-                    fl2 = true;
-                }
-                if (System.currentTimeMillis()-startTime >= 5000 && !fl ){
-                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(true);
-                    setCurrentPanel("choose_menu");
-                    fl = true;
-                }
 
 
                 getInstance().paintComponents(g2d);
