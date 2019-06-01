@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePanel extends FullSizePanel {
+    public boolean running = false;
     public static boolean paused = false;
     public static ArrayList<shoot> shoots = new ArrayList<shoot>();
     public static ArrayList<Missile> missiles = new ArrayList<>();
@@ -140,6 +141,7 @@ public class GamePanel extends FullSizePanel {
 
         if (paused){
             PauseFrame.getInstance().draw(g);
+            running = false;
         }
 
 

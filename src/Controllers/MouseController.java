@@ -23,10 +23,11 @@ public class MouseController {
     }
 
     public static void mousePressed(MouseEvent e) {
-        if (!GamePanel.paused )
+        if (!GamePanel.paused && GamePanel.getInstance().running)
             KeyController.getInstance().pressed(KeyController.getInstance().getSpaceKey());
         else{
             if (GameMouseMotionListener.insideResume){
+                GamePanel.getInstance().running = true;
                 KeyController.getInstance().pressed(KeyController.getInstance().getEscapeKey());
             }
             if (GameMouseMotionListener.insideQuit){
