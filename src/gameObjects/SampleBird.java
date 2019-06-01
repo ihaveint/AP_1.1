@@ -13,17 +13,19 @@ import java.util.Scanner;
 
 public class SampleBird implements Drawable {
 
+
     public static int counter = 0;
     public int id ;
     double x , y;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
     ArrayList<Location> bandageLocations = new ArrayList<>();
     int bandageWidth , bandageHeight;
-    HpBar hp = new HpBar();
+    public HpBar hp = new HpBar();
     double heart = 100;
     boolean visible = true;
     public long shakeTime;
     public boolean died = false;
+
     public void loadBoxes(){
         rectangles = RectLoader.loadRectangles("src/GameObjects/sampleBox2.txt");
         for (Rectangle rect : rectangles){
@@ -122,12 +124,22 @@ public class SampleBird implements Drawable {
         }
     }
 
+    public void expand_hp(){
+        if (hp.decreasing) {
+            hp.decreasing = false;
+        }
+        hp.increasing = true;
+    }
     public boolean hit(Rectangle b){
         if (SpaceShip.showResume) return false;
         for (Rectangle rectangle : this.rectangles)
         {
 
-            if (new Rectangle(rectangle.xmin + (int)x + 30 , rectangle.ymin + (int)y , rectangle.xmax + (int)x + 30  , rectangle.ymax + (int)y).hit(b)) return true;
+            if (new Rectangle(rectangle.xmin + (int)x + 30 , rectangle.ymin + (int)y , rectangle.xmax + (int)x + 30  , rectangle.ymax + (int)y).hit(b)) {
+                expand_hp();
+                return true;
+
+            }
         }
 
         return false;

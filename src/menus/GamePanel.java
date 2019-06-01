@@ -31,6 +31,15 @@ public class GamePanel extends FullSizePanel {
     public static GamePanel getInstance() {
         return ourInstance;
     }
+
+    public static void reset() {
+        for (SampleBird sampleBird : sampleBirds){
+            sampleBird.hp.increasing = false;
+            sampleBird.hp.decreasing = false;
+            sampleBird.hp.drawPercentage = 0;
+        }
+    }
+
     public void add_explosion(int x , int y){
         small_explosions.add(new small_explosion(x,y));
 

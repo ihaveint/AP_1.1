@@ -1,6 +1,7 @@
 package Listener;
 
 import Controllers.KeyController;
+import menus.GamePanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -18,12 +19,14 @@ public class GameKeyListener implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
 
-        KeyController.getInstance().pressed(e.getKeyCode());
+        if (!GamePanel.paused)
+            KeyController.getInstance().pressed(e.getKeyCode());
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        KeyController.getInstance().pressed(e.getKeyCode());
+        if (!GamePanel.paused)
+            KeyController.getInstance().pressed(e.getKeyCode());
     }
 
     @Override

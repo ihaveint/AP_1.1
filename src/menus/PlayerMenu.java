@@ -28,6 +28,7 @@ public class PlayerMenu extends FullSizePanel{
             GamePanel.paused = false;
             GameFrame.getInstance().setCurrentPanel("GamePanel");
             GamePanel.getInstance().running = true;
+            GamePanel.reset();
 
         });
         this.addMouseMotionListener(GameMouseMotionListener.getInstance());

@@ -16,6 +16,10 @@ public class LoadPanel extends FullSizePanel{
     public LoadPanel() {
         super();
         hp.percentage = 0;
+        hp.increasing = true;
+        hp.decreasing = false;
+        hp.type = "load_bar";
+
     }
 
     @Override
