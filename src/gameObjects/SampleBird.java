@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SampleBird implements Drawable {
+
     public static int counter = 0;
     public int id ;
     double x , y;
@@ -145,7 +146,6 @@ public class SampleBird implements Drawable {
     public long shakeStartTime;
 
     public void shake(boolean died , long shakeTime){
-
         shakeStartTime = System.currentTimeMillis();
         this.died = died;
         if (died){
@@ -157,6 +157,7 @@ public class SampleBird implements Drawable {
         shake(true);
     }
     public void shake(boolean died) {
+
         shake(died,2000);
 
     }

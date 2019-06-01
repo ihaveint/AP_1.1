@@ -1,7 +1,4 @@
-import menus.ChoosePlayerMenu;
-import menus.GameFrame;
-import menus.GamePanel;
-import menus.PlayerMenu;
+import menus.*;
 import resources.GlobalHashMap;
 
 import java.awt.*;
@@ -37,7 +34,7 @@ public class LoadBeforeRun {
                     GamePanel.getInstance().spaceShip.test.currentLayer = 1;
                     GamePanel.getInstance().paintComponent(g2d);
                     GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(false);
-//                    GameFrame.getInstance().revalidate();
+                    GameFrame.getInstance().revalidate();
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
                     PlayerMenu.getInstance().paintComponent(g2d);
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(false);
@@ -48,15 +45,16 @@ public class LoadBeforeRun {
 
 
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
-
                     GameFrame.getInstance().revalidate();
 
 
 
                     g2d.dispose();
 
+
             } while (GameFrame.bs.contentsRestored());
             GameFrame.bs.show();
+
         }while (GameFrame.bs.contentsLost());
     }
 }
