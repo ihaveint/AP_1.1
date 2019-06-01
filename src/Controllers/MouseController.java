@@ -29,6 +29,9 @@ public class MouseController {
             if (GameMouseMotionListener.insideResume){
                 KeyController.getInstance().pressed(KeyController.getInstance().getEscapeKey());
             }
+            if (GameMouseMotionListener.insideQuit){
+                GamePanelController.getInstance().MoveBackToPlayerMenu();
+            }
         }
 
     }

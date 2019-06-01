@@ -19,10 +19,14 @@ public class FullSizeFrame extends JFrame{
     }
 
     public static  void setCurrentPanel(String name){
-        if (currentPanel != null)
+        if (currentPanel != null) {
+            currentPanel.requestFocus(false);
             currentPanel.setVisible(false);
+        }
         currentPanel = GlobalHashMap.getInstance().panelHashMap.get(name);
         currentPanel.setVisible(true);
-        currentPanel.requestFocus();
+        currentPanel.requestFocus(true);
+
+
     }
 }

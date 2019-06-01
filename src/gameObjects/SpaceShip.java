@@ -1,6 +1,7 @@
 package gameObjects;
 
 import Animations.BeCareFul.BeCareFul;
+import Listener.GameMouseMotionListener;
 import menus.GamePanel;
 import resources.ImageLoader;
 import resources.Location;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 public class SpaceShip implements Drawable{
 
+    public static Location drawLocation = GameMouseMotionListener.mouseLocation;
     boolean showWarning = false;
     public static boolean showResume = false;
     public static double resumePerecnt = 0;
@@ -39,12 +41,15 @@ public class SpaceShip implements Drawable{
         }
     }
     public static Location getLocation(){
-        return new Location((int)mouseLocation.x - GamePanel.getInstance().spaceShipWidth/2,(int)mouseLocation.y - GamePanel.getInstance().spaceShipHeight/2);
-
+//        return new Location((int) GameMouseMotionListener.mouseLocation.x - GamePanel.getInstance().spaceShipWidth/2,(int)GameMouseMotionListener.mouseLocation.y - GamePanel.getInstance().spaceShipHeight/2);
+            return new Location(drawLocation.x - GamePanel.getInstance().spaceShipWidth/2 , drawLocation.y - GamePanel.getInstance().spaceShipHeight/2);
     }
 
-    public void update() {
+    public void update(boolean paused) {
 
+        if (!paused){
+            drawLocation = GameMouseMotionListener.mouseLocation;
+        }
         if (showWarning)
             test.update();
 

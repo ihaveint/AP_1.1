@@ -16,7 +16,7 @@ public class GamePanel extends FullSizePanel {
     public static boolean paused = false;
     public static ArrayList<shoot> shoots = new ArrayList<shoot>();
     public static ArrayList<Missile> missiles = new ArrayList<>();
-    public static Location mouseLocation = new Location(700,700);
+//    public static Location mouseLocation = new Location(700,700);
     public int spaceShipWidth , spaceShipHeight;
     public int shootWidth , shootHeight;
     public static Resume resumeAnimation = new Resume();
@@ -99,7 +99,7 @@ public class GamePanel extends FullSizePanel {
         for (Missile missile : missiles){
             missile.update(paused||spaceShip.showResume);
         }
-        spaceShip.update();
+        spaceShip.update(paused);
         for (SampleBird sampleBird : sampleBirds){
             sampleBird.update(paused || spaceShip.showResume);
         }

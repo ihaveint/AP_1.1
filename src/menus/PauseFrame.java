@@ -12,6 +12,7 @@ public class PauseFrame implements Drawable {
 
     private Location location = new Location(500,500);
     public Rectangle resumeRectangle ;
+    public Rectangle quitRectangle ;
     public static PauseFrame getInstance() {
         return ourInstance;
     }
@@ -21,7 +22,13 @@ public class PauseFrame implements Drawable {
                 ImageLoader.getImage("resume_button").getHeight(null));
         resumeRectangle.xmax += resumeRectangle.xmin;
         resumeRectangle.ymax += resumeRectangle.ymin;
-        resumeRectangle.print();
+
+
+
+        quitRectangle = new Rectangle(resumeRectangle.xmin,630,ImageLoader.getImage("quit_button").getWidth(null),
+                ImageLoader.getImage("quit_button").getHeight(null));
+        quitRectangle.xmax += quitRectangle.xmin;
+        quitRectangle.ymax += quitRectangle.ymin;
     }
 
     @Override

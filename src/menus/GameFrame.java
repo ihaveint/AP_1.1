@@ -1,6 +1,8 @@
 package menus;
 
 import Listener.GameKeyListener;
+import Listener.GameMouseListener;
+import Listener.GameMouseMotionListener;
 import resources.GlobalHashMap;
 import resources.Location;
 
@@ -28,7 +30,7 @@ public class GameFrame extends FullSizeFrame implements Runnable{
     }
 
     public static BufferStrategy bs;
-    private GameFrame() {
+    public GameFrame() {
         super();
 
         createBufferStrategy(3);
@@ -47,6 +49,8 @@ public class GameFrame extends FullSizeFrame implements Runnable{
         loadThread.start();
 
         this.addKeyListener(GameKeyListener.getInstance());
+        this.addMouseMotionListener(GameMouseMotionListener.getInstance());
+        this.addMouseListener(GameMouseListener.getInstance());
     }
 
 

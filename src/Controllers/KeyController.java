@@ -1,9 +1,11 @@
 package Controllers;
 
+import Listener.GameMouseMotionListener;
 import gameObjects.SpaceShip;
 import menus.FullSizeFrame;
 import menus.GameFrame;
 import menus.GamePanel;
+import menus.PlayerMenu;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -37,16 +39,17 @@ public class KeyController {
         long diff = now - lastShootMillis;
         if (keyCode == getSpaceKey()){
             if (diff >= 200){
-                GamePanelController.getInstance().newShoot((int)GamePanel.mouseLocation.x,(int)GamePanel.mouseLocation.y);
+                GamePanelController.getInstance().newShoot((int) GameMouseMotionListener.mouseLocation.x,(int)GameMouseMotionListener.mouseLocation.y);
                 lastShootMillis = now;
             }
         }
         else if (keyCode == getMissileKey()){
-            GamePanelController.getInstance().newMissile((int)GamePanel.mouseLocation.x,(int)GamePanel.mouseLocation.y);
+            GamePanelController.getInstance().newMissile((int)GameMouseMotionListener.mouseLocation.x,(int)GameMouseMotionListener.mouseLocation.y);
         }
         else if (keyCode == getEscapeKey()){
             GamePanel.switchState();
 
         }
     }
+
 }
