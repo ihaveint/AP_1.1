@@ -93,13 +93,6 @@ public class SampleBird implements Drawable {
                 g.drawImage(ImageLoader.getImage("bandage"),(int)bandageLocation.x - bandageWidth/2,(int)bandageLocation.y - bandageHeight/ 2,null);
             }
             hp.draw(g);
-        }else{
-            shakeY = shakeX = 0;
-            if (died){
-                visible = false;
-//                GamePanel.sampleBirds.remove(id-1);
-//                GamePanel.removeBird(id);
-            }
         }
         heart = Math.max(heart,0);
 
