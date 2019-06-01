@@ -38,7 +38,9 @@ public class KeyController {
         long now = System.currentTimeMillis();
         long diff = now - lastShootMillis;
         if (keyCode == getSpaceKey()){
+
             if (diff >= 200){
+                SpaceShip.currentHeat += 25;
                 GamePanelController.getInstance().newShoot((int) GameMouseMotionListener.mouseLocation.x,(int)GameMouseMotionListener.mouseLocation.y);
                 lastShootMillis = now;
             }

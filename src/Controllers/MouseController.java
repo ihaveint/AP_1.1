@@ -2,6 +2,7 @@ package Controllers;
 
 import Listener.GameKeyListener;
 import Listener.GameMouseMotionListener;
+import gameObjects.SpaceShip;
 import menus.GamePanel;
 import resources.Location;
 
@@ -23,8 +24,10 @@ public class MouseController {
     }
 
     public static void mousePressed(MouseEvent e) {
-        if (!GamePanel.paused && GamePanel.getInstance().running)
+        if (!GamePanel.paused && GamePanel.getInstance().running) {
+
             KeyController.getInstance().pressed(KeyController.getInstance().getSpaceKey());
+        }
         else{
             if (GameMouseMotionListener.insideResume){
                 GamePanel.getInstance().running = true;

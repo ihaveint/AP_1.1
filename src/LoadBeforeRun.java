@@ -33,6 +33,9 @@ public class LoadBeforeRun {
                     GamePanel.getInstance().spaceShip.test.currentPercentage = 0;
                     GamePanel.getInstance().spaceShip.test.currentLayer = 1;
                     GamePanel.getInstance().paintComponent(g2d);
+                    for (int i = 1 ; i <= 16 ; i ++){
+                        GamePanel.drawHeat(i,g2d);
+                    }
                     GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(false);
                     GameFrame.getInstance().revalidate();
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);

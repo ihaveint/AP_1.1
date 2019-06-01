@@ -38,6 +38,13 @@ public class ImageLoader {
             hashMap.put("resume_button",ImageIO.read(new File("src/resources/resume.png")).getScaledInstance(485/2,90/2,Image.SCALE_AREA_AVERAGING));
             hashMap.put("frame",ImageIO.read(new File("src/resources/frame.png")).getScaledInstance(828/2,426/2,Image.SCALE_AREA_AVERAGING));
             hashMap.put("quit_button",ImageIO.read(new File("src/resources/quit.png")).getScaledInstance(485/2,90/2,Image.SCALE_AREA_AVERAGING));
+            hashMap.put("upper_left",ImageIO.read(new File("src/resources/upper_left.png")));
+            hashMap.put("upper_left2",ImageIO.read(new File("src/resources/upper_left2.png")));
+            hashMap.put("box1",ImageIO.read(new File("src/resources/box1.png")));
+            hashMap.put("box2",ImageIO.read(new File("src/resources/box2.png")));
+            for (int i = 1 ; i <= 16 ; i ++){
+                hashMap.put("heat" + (i - 1),ImageIO.read(new File("src/resources/heat/" + i + ".png")));
+            }
         }
         catch (Exception e){e.printStackTrace();}
     }

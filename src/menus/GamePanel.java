@@ -74,18 +74,35 @@ public class GamePanel extends FullSizePanel {
 
     }
 
+    public static void drawHeat(int i , Graphics g) {
+        g.drawImage(ImageLoader.getImage("heat" +i),0,0,400,400,null);
+    }
+
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         MovingBackGround.getInstance().draw(g,paused);
+        g.drawImage(ImageLoader.getImage("upper_left"),0,0,400,400,null);
+        spaceShip.currentHeat = Math.min(spaceShip.currentHeat,100);
+
+        if (spaceShip.currentHeat < 0) {
+            spaceShip.currentHeat = 0;
+        }
+        drawHeat((int)(spaceShip.currentHeat/100*16),g);
+        
 
 
-        for (shoot tir : shoots){
+        ArrayList<shoot> currentShoots = new ArrayList<>();
+        for (shoot shoot : shoots){
+            currentShoots.add(shoot);
+        }
+        for (shoot tir : currentShoots){
 
             tir.checkBarkhord();
         }
-        for (shoot tir : shoots){
+        for (shoot tir : currentShoots){
 
             tir.draw(g);
 
@@ -110,7 +127,7 @@ public class GamePanel extends FullSizePanel {
             resumeAnimation.draw(g);
             resumeAnimation.update();
         }
-        for (shoot tir : shoots){
+        for (shoot tir : currentShoots){
             tir.update(paused||spaceShip.showResume);
 
         }
@@ -134,6 +151,14 @@ public class GamePanel extends FullSizePanel {
                 }
         }
 
+        ArrayList<shoot> tirReplacement = new ArrayList<>();
+        for (shoot tir : shoots){
+            if (tir.y >= -50){
+                tirReplacement.add(tir);
+            }
+
+        }
+        shoots = tirReplacement;
 
 
 
@@ -144,6 +169,8 @@ public class GamePanel extends FullSizePanel {
             running = false;
         }
 
+
+        SpaceShip.currentHeat -= 0.7;
 
 
 

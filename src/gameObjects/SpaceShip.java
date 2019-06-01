@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class SpaceShip implements Drawable{
 
+    public static double currentHeat = 0;
     public static Location drawLocation = GameMouseMotionListener.mouseLocation;
     boolean showWarning = false;
     public static boolean showResume = false;
