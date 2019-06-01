@@ -136,6 +136,7 @@ public class SampleBird implements Drawable {
         {
 
             if (new Rectangle(rectangle.xmin + (int)x + 30 , rectangle.ymin + (int)y , rectangle.xmax + (int)x + 30  , rectangle.ymax + (int)y).hit(b)) {
+
                 expand_hp();
                 return true;
 

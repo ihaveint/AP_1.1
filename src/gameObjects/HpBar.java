@@ -66,10 +66,9 @@ public class HpBar implements Drawable{
     }
     public long last_complete = -500000;
     public void update_percentage(){
-        if (increasing){
+        if (increasing && drawPercentage < 1){
             drawPercentage += 0.005;
             if (drawPercentage >= 1) {
-                System.out.println("come on man ! ");
                 drawPercentage = 1;
                 last_complete = System.currentTimeMillis();
             }
@@ -79,7 +78,8 @@ public class HpBar implements Drawable{
         }
 
 
-        if (drawPercentage == 1 && System.currentTimeMillis() - last_complete > 3000){
+        if (drawPercentage >= 1 && System.currentTimeMillis() - last_complete > 3000){
+            System.out.println("I guess I'm here ! ");
             decreasing = true;
             increasing = false;
 
