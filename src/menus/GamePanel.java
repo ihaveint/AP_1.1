@@ -55,6 +55,24 @@ public class GamePanel extends FullSizePanel {
         }
         else paused = true;
     }
+
+    public static synchronized void removeBird(int id) {
+        for (int ptr = 0 ; ptr < sampleBirds.size() ; ptr ++){
+            if (sampleBirds.get(ptr).id == id){
+                sampleBirds.remove(ptr);
+                break;
+            }
+        }
+        /*
+        for (SampleBird sampleBird : sampleBirds){
+            if (sampleBird.id == id){
+                sampleBirds.remove(sampleBird) ;
+                break;
+            }
+        }*/
+
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -103,6 +121,21 @@ public class GamePanel extends FullSizePanel {
         for (SampleBird sampleBird : sampleBirds){
             sampleBird.update(paused || spaceShip.showResume);
         }
+
+
+
+        for (int i = 0 ; i < sampleBirds.size() ; i ++) {
+            SampleBird sampleBird = sampleBirds.get(i);
+                if ((System.currentTimeMillis() - sampleBird.shakeStartTime > sampleBird.shakeTime) && sampleBird.died) {
+                    GamePanel.removeBird(sampleBird.id);
+                    i --;
+
+                }
+        }
+
+
+
+
 
 
         if (paused){

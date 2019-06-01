@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SampleBird implements Drawable {
-
+    public static int counter = 0;
+    public int id ;
     double x , y;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
     ArrayList<Location> bandageLocations = new ArrayList<>();
@@ -19,8 +20,8 @@ public class SampleBird implements Drawable {
     HpBar hp = new HpBar();
     double heart = 100;
     boolean visible = true;
-    long shakeTime;
-    boolean died = false;
+    public long shakeTime;
+    public boolean died = false;
     public void loadBoxes(){
         rectangles = RectLoader.loadRectangles("src/GameObjects/sampleBox2.txt");
         for (Rectangle rect : rectangles){
@@ -32,10 +33,14 @@ public class SampleBird implements Drawable {
 
     }
     public SampleBird(){
+
         this(0,0);
 
     }
     public SampleBird(int x , int y){
+
+        counter ++;
+        id = counter;
         this.x = x;
         this.y = y;
 
@@ -92,6 +97,8 @@ public class SampleBird implements Drawable {
             shakeY = shakeX = 0;
             if (died){
                 visible = false;
+//                GamePanel.sampleBirds.remove(id-1);
+//                GamePanel.removeBird(id);
             }
         }
         heart = Math.max(heart,0);
@@ -106,6 +113,7 @@ public class SampleBird implements Drawable {
     }
 
     public void update(boolean paused){
+
         if (paused) return ;
         x+= 0.5;
         for (Location bandageLocation : bandageLocations){
@@ -153,7 +161,6 @@ public class SampleBird implements Drawable {
         this.shakeTime = shakeTime;
     }
     public void shake(){
-        if (died) return; // this line should be removed ...
         shake(true);
     }
     public void shake(boolean died) {

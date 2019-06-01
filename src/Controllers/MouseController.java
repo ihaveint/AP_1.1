@@ -36,18 +36,18 @@ public class MouseController {
 
     }
 
-    public void setCursorLocation(String componentName, int x , int y){
-        if (GamePanel.paused) return ;
-        Object component =  hashMap.get(componentName);
-        Class<?> someClass = component.getClass();
-        Field mouseLocation = null;
-        try {
-            mouseLocation = someClass.getField("mouseLocation");
-            mouseLocation.set(component,new Location(x,y));
-            GamePanelController.getInstance().repaintPanel();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
+//    public void setCursorLocation(String componentName, int x , int y){
+//        if (GamePanel.paused) return ;
+//        Object component =  hashMap.get(componentName);
+//        Class<?> someClass = component.getClass();
+//        Field mouseLocation = null;
+//        try {
+//            mouseLocation = someClass.getField("mouseLocation");
+//            mouseLocation.set(component,new Location(x,y));
+//            GamePanelController.getInstance().repaintPanel();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 }
