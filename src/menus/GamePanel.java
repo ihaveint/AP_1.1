@@ -105,6 +105,10 @@ public class GamePanel extends FullSizePanel {
         }
 
 
+        if (paused){
+            PauseFrame.getInstance().draw(g);
+        }
+
 
 
 

@@ -35,6 +35,9 @@ public class ImageLoader {
             }
             hashMap.put("resume",ImageIO.read(new File("src/Animations/Resume/resuming.png")).getScaledInstance(2100/4,1500/4,Image.SCALE_AREA_AVERAGING));
             hashMap.put("bandage",ImageIO.read(new File("src/resources/bandage.png")).getScaledInstance(260/20,280/20,Image.SCALE_AREA_AVERAGING));
+            hashMap.put("resume_button",ImageIO.read(new File("src/resources/resume.png")).getScaledInstance(485/2,90/2,Image.SCALE_AREA_AVERAGING));
+            hashMap.put("frame",ImageIO.read(new File("src/resources/frame.png")).getScaledInstance(828/2,426/2,Image.SCALE_AREA_AVERAGING));
+            hashMap.put("quit_button",ImageIO.read(new File("src/resources/quit.png")).getScaledInstance(485/2,90/2,Image.SCALE_AREA_AVERAGING));
         }
         catch (Exception e){e.printStackTrace();}
     }

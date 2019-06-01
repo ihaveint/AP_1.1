@@ -1,5 +1,7 @@
 package Controllers;
 
+import Listener.GameKeyListener;
+import Listener.GameMouseMotionListener;
 import menus.GamePanel;
 import resources.Location;
 
@@ -21,7 +23,13 @@ public class MouseController {
     }
 
     public static void mousePressed(MouseEvent e) {
-        KeyController.getInstance().pressed(KeyController.getInstance().getSpaceKey());
+        if (!GamePanel.paused )
+            KeyController.getInstance().pressed(KeyController.getInstance().getSpaceKey());
+        else{
+            if (GameMouseMotionListener.insideResume){
+                KeyController.getInstance().pressed(KeyController.getInstance().getEscapeKey());
+            }
+        }
 
     }
 

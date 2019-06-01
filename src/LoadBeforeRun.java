@@ -37,14 +37,18 @@ public class LoadBeforeRun {
                     GamePanel.getInstance().spaceShip.test.currentLayer = 1;
                     GamePanel.getInstance().paintComponent(g2d);
                     GlobalHashMap.getInstance().panelHashMap.get("GamePanel").setVisible(false);
-                    GameFrame.getInstance().revalidate();
+//                    GameFrame.getInstance().revalidate();
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
                     PlayerMenu.getInstance().paintComponent(g2d);
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(false);
                     GameFrame.getInstance().revalidate();
                     GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(true);
                     ChoosePlayerMenu.getInstance().paintComponent(g2d);
-                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(true);
+                    GlobalHashMap.getInstance().panelHashMap.get("choose_menu").setVisible(false);
+
+
+                    GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
+
                     GameFrame.getInstance().revalidate();
 
 

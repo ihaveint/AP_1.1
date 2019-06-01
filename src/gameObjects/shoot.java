@@ -46,11 +46,7 @@ public class shoot implements Drawable{
                 sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
             }
         }
-//            if (hitChicken(GamePanel.testBird)){
-//            GamePanel.testBird.reduceHeart(25);
-//            GamePanel.testBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
-//
-//            }
+
     }
 
     @Override
@@ -63,6 +59,7 @@ public class shoot implements Drawable{
     public boolean hitChicken(SampleBird bird){
         if (visible == false) return false;
         if (bird.died) return false;
+
         for (Rectangle rectangle : this.rectangles){
             Rectangle check = new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2);
 

@@ -1,7 +1,9 @@
 package gameObjects;
 
+import resources.Location;
+
 public class Rectangle {
-    int xmin , ymin , xmax , ymax;
+    public int xmin , ymin , xmax , ymax;
     public static Rectangle common_cache;
     public Rectangle(int a , int b , int c , int d){
         this.xmin = a;
@@ -20,5 +22,13 @@ public class Rectangle {
         common_cache = Common;
         return  Common.xmin < Common.xmax && Common.ymin < Common.ymax;
 
+    }
+
+    public boolean inside(Location point){
+        return point.x >= xmin && point.x <= xmax && point.y >= ymin && point.y <= ymax;
+    }
+
+    public void print() {
+        System.out.println(xmin + " " + ymin + " " +xmax +" " + ymax)  ;
     }
 }

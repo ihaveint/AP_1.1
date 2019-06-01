@@ -34,8 +34,9 @@ public class SpaceShip implements Drawable{
         g.drawImage(ImageLoader.getImage("SpaceShip"),(int)drawLocation.x,(int)drawLocation.y,null);
         if (showWarning)
             test.draw(g);
-        if (showResume)
+        if (showResume) {
             GamePanel.resumeAnimation.draw(g);
+        }
     }
     public static Location getLocation(){
         return new Location((int)mouseLocation.x - GamePanel.getInstance().spaceShipWidth/2,(int)mouseLocation.y - GamePanel.getInstance().spaceShipHeight/2);
