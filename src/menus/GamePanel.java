@@ -79,19 +79,31 @@ public class GamePanel extends FullSizePanel {
     }
 
 
+    public static boolean delayHeat = false;
+    long startDelay = -5000;
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         MovingBackGround.getInstance().draw(g,paused);
         g.drawImage(ImageLoader.getImage("upper_left"),0,0,400,400,null);
-        spaceShip.currentHeat = Math.min(spaceShip.currentHeat,100);
 
+        spaceShip.currentHeat = Math.min(spaceShip.currentHeat,100);
+        if (spaceShip.currentHeat == 100){
+            delayHeat = true;
+            startDelay = System.currentTimeMillis();
+        }
         if (spaceShip.currentHeat < 0) {
             spaceShip.currentHeat = 0;
         }
-        drawHeat((int)(spaceShip.currentHeat/100*16),g);
-        
+        if (delayHeat && System.currentTimeMillis() - startDelay > 5000){
+            delayHeat = false;
+
+        }
+//        if (!delayHeat) {
+            drawHeat((int) (spaceShip.currentHeat / 100 * 16), g);
+//        }
+
 
 
         ArrayList<shoot> currentShoots = new ArrayList<>();

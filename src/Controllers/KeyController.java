@@ -6,6 +6,7 @@ import menus.FullSizeFrame;
 import menus.GameFrame;
 import menus.GamePanel;
 import menus.PlayerMenu;
+import sun.jvm.hotspot.memory.Space;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -40,9 +41,11 @@ public class KeyController {
         if (keyCode == getSpaceKey()){
 
             if (diff >= 200){
-                SpaceShip.currentHeat += 25;
-                GamePanelController.getInstance().newShoot((int) GameMouseMotionListener.mouseLocation.x,(int)GameMouseMotionListener.mouseLocation.y);
-                lastShootMillis = now;
+                if (GamePanel.delayHeat == false) {
+                    SpaceShip.currentHeat += 25;
+                    GamePanelController.getInstance().newShoot((int) GameMouseMotionListener.mouseLocation.x, (int) GameMouseMotionListener.mouseLocation.y);
+                    lastShootMillis = now;
+                }
             }
         }
         else if (keyCode == getMissileKey()){
