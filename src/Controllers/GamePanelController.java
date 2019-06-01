@@ -25,13 +25,8 @@ public class GamePanelController {
             if (!sampleBird.died)
                 sampleBird.shake();
         }
-//        GamePanel.testBird.shake();
     }
 
-    public void repaintPanel(){
-
-        //GamePanel.getInstance().repaint();
-    }
 
     public void newShoot(int x , int y) {
         GamePanel.shoots.add(new shoot(x , y));
@@ -43,10 +38,5 @@ public class GamePanelController {
 
     public void MoveBackToPlayerMenu() {
         GameFrame.getInstance().setCurrentPanel("PlayerMenu");
-
-//        PlayerMenu.getInstance().requestFocus();
-//        PlayerMenu.getInstance().requestFocusInWindow();
-//        PlayerMenu.getInstance().removeMouseMotionListener(GameMouseMotionListener.getInstance());
-//        PlayerMenu.getInstance().addMouseMotionListener(GameMouseMotionListener.getInstance());
     }
 }
