@@ -1,6 +1,7 @@
 package menus;
 
 import Animations.Resume.Resume;
+import Animations.explosions.small_explosion;
 import Listener.GameKeyListener;
 import Listener.GameMouseListener;
 import Listener.GameMouseMotionListener;
@@ -23,12 +24,17 @@ public class GamePanel extends FullSizePanel {
     public static Resume resumeAnimation = new Resume();
     public SpaceShip spaceShip = new SpaceShip();
     public static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
+    public static ArrayList<small_explosion> small_explosions = new ArrayList<>();
+
     public static GamePanel ourInstance = new GamePanel();
 
     public static GamePanel getInstance() {
         return ourInstance;
     }
+    public void add_explosion(int x , int y){
+        small_explosions.add(new small_explosion(x,y));
 
+    }
     public GamePanel(){
         super();
 
@@ -106,6 +112,9 @@ public class GamePanel extends FullSizePanel {
 
 
 
+        for (small_explosion small_explosion : small_explosions){
+            small_explosion.draw(g);
+        }
         ArrayList<shoot> currentShoots = new ArrayList<>();
         for (shoot shoot : shoots){
             currentShoots.add(shoot);

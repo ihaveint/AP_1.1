@@ -45,6 +45,8 @@ public class ImageLoader {
             for (int i = 1 ; i <= 16 ; i ++){
                 hashMap.put("heat" + (i - 1),ImageIO.read(new File("src/resources/heat/" + i + ".png")));
             }
+            hashMap.put("small_exp",ImageIO.read(new File("src/resources/explosion.png")));
+
         }
         catch (Exception e){e.printStackTrace();}
     }

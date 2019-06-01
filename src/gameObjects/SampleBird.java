@@ -1,5 +1,6 @@
 package gameObjects;
 
+import Animations.explosions.small_explosion;
 import menus.GamePanel;
 import resources.ImageLoader;
 import resources.Location;
@@ -52,9 +53,15 @@ public class SampleBird implements Drawable {
     }
 
     public double shakeX , shakeY;
+    boolean mark_explosion = false;
     @Override
     public void draw(Graphics g) {
 
+        if (died && !mark_explosion){
+            mark_explosion = true;
+            GamePanel.getInstance().add_explosion((int)this.x,(int)this.y);
+
+        }
         if (heart < 0) return ;
         hp.x = (int)this.x + 80;
         hp.y = (int)this.y - 120;
