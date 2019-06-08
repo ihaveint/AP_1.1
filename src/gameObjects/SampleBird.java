@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SampleBird implements Drawable {
-
-
+    
     public static int counter = 0;
     public int id ;
     double x , y;
@@ -34,12 +33,9 @@ public class SampleBird implements Drawable {
             rect.xmax /= 2;
             rect.ymax /= 2;
         }
-
     }
     public SampleBird(){
-
         this(0,0);
-
     }
     public SampleBird(int x , int y){
 

@@ -50,8 +50,6 @@ public class LoadBeforeRun {
                     GlobalHashMap.getInstance().panelHashMap.get("PlayerMenu").setVisible(true);
                     GameFrame.getInstance().revalidate();
 
-
-
                     g2d.dispose();
 
 

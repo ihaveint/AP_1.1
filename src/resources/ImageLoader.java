@@ -15,7 +15,6 @@ public class ImageLoader {
 
     private ImageLoader() {
         try{
-
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             hashMap.put("BackGround", ImageIO.read(new File("src/resources/BackGround1.png")).getScaledInstance(screenSize.width, screenSize.height,Image.SCALE_AREA_AVERAGING));
             hashMap.put("SpaceShip",ImageIO.read(new File("src/resources/SpaceShip.png")));
@@ -26,6 +25,8 @@ public class ImageLoader {
             hashMap.put("missile",ImageIO.read(new File("src/resources/missile.png")));
             hashMap.put("choose_menu",ImageIO.read(new File("src/resources/choose_menu.jpg")).getScaledInstance(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height,Image.SCALE_AREA_AVERAGING));
             hashMap.put("chicken",ImageIO.read(new File("src/resources/BigChickenRed.png")).getScaledInstance(310/2,261/2,Image.SCALE_AREA_AVERAGING));
+            hashMap.put("randomBird",ImageIO.read(new File("src/resources/randomBird.png")).getScaledInstance(545/3,454/3,Image.SCALE_AREA_AVERAGING));
+            hashMap.put("morghePile",ImageIO.read(new File("src/resources/morghePile.png")).getScaledInstance(556/3,559/3,Image.SCALE_AREA_AVERAGING));
             hashMap.put("HP",ImageIO.read(new File("src/resources/hp_bar.png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));
             hashMap.put("HP2",ImageIO.read(new File("src/resources/hp_bar2.png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));
             hashMap.put("HP3",ImageIO.read(new File("src/resources/hp_bar3.png")).getScaledInstance(429/2,185,Image.SCALE_AREA_AVERAGING));

@@ -25,6 +25,7 @@ public class GameFrame extends FullSizeFrame implements Runnable{
             while(LoadPanel.getInstance().hp.percentage < 1){
                 LoadPanel.getInstance().repaint();
             }
+
             stop();
         }
     }

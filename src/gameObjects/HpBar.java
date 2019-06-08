@@ -79,7 +79,6 @@ public class HpBar implements Drawable{
 
 
         if (drawPercentage >= 1 && System.currentTimeMillis() - last_complete > 3000){
-            System.out.println("I guess I'm here ! ");
             decreasing = true;
             increasing = false;
 

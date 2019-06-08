@@ -44,9 +44,11 @@ public class GamePanel extends FullSizePanel {
         small_explosions.add(new small_explosion(x,y));
 
     }
+    RandomBird test;
     public GamePanel(){
         super();
 
+        test = new RandomBird();
         sampleBirds.add(new SampleBird(0,100));
 
         sampleBirds.add(new SampleBird(600,300));
@@ -79,13 +81,6 @@ public class GamePanel extends FullSizePanel {
                 break;
             }
         }
-        /*
-        for (SampleBird sampleBird : sampleBirds){
-            if (sampleBird.id == id){
-                sampleBirds.remove(sampleBird) ;
-                break;
-            }
-        }*/
 
     }
 
@@ -191,9 +186,8 @@ public class GamePanel extends FullSizePanel {
         shoots = tirReplacement;
 
 
-
-
-
+        test.draw(g);
+        test.update();
         if (paused){
             PauseFrame.getInstance().draw(g);
             running = false;

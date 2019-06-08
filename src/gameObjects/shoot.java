@@ -43,7 +43,8 @@ public class shoot implements Drawable{
         for (SampleBird sampleBird : GamePanel.sampleBirds) {
             if (hitChicken(sampleBird)){
                 sampleBird.reduceHeart(25);
-                sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
+//                sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
+                sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,Rectangle.common_cache.ymin);
             }
         }
 
