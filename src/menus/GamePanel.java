@@ -44,11 +44,12 @@ public class GamePanel extends FullSizePanel {
         small_explosions.add(new small_explosion(x,y));
 
     }
-    RandomBird test;
+//    RandomBird test;
+    MorgheEntehari test;
     public GamePanel(){
         super();
 
-        test = new RandomBird();
+        test = new MorgheEntehari();
         sampleBirds.add(new SampleBird(0,100));
 
         sampleBirds.add(new SampleBird(600,300));
@@ -147,7 +148,9 @@ public class GamePanel extends FullSizePanel {
             sampleBird.draw(g);
         }
 
+        test.draw(g);
         spaceShip.draw(g);
+
         if (SpaceShip.showResume) {
             resumeAnimation.draw(g);
             resumeAnimation.update();
@@ -186,7 +189,7 @@ public class GamePanel extends FullSizePanel {
         shoots = tirReplacement;
 
 
-        test.draw(g);
+
         test.update();
         if (paused){
             PauseFrame.getInstance().draw(g);
