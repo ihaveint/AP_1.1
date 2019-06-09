@@ -47,7 +47,6 @@ public class GamePanel extends FullSizePanel {
         small_explosions.add(new small_explosion(x,y));
 
     }
-//    RandomBird test;
     public GamePanel(){
         super();
 
@@ -59,11 +58,6 @@ public class GamePanel extends FullSizePanel {
         final_birds.add(new MorgheParish());
 
 
-
-
-
-
-//        currentLevel.sampleBirds = sampleBirds;
         currentLevel.final_birds = final_birds;
         currentLevel.powerUps.add(new RedPowerUp());
         currentLevel.powerUps.add(new RedPowerUp(600,0));
@@ -95,15 +89,6 @@ public class GamePanel extends FullSizePanel {
         else paused = true;
     }
 
-//    public static synchronized void removeBird(int id) {
-//        for (int ptr = 0 ; ptr < sampleBirds.size() ; ptr ++){
-//            if (sampleBirds.get(ptr).id == id){
-//                sampleBirds.remove(ptr);
-//                break;
-//            }
-//        }
-//
-//    }
 
     public static void drawHeat(int i , Graphics g) {
         g.drawImage(ImageLoader.getImage("heat" +i),0,0,400,400,null);
@@ -135,6 +120,13 @@ public class GamePanel extends FullSizePanel {
 
         }
 
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Location lowerBarLocation = new Location(0,(int)screenSize.getHeight()-ImageLoader.getImage("lower_bar").getHeight(null) - 100);
+        g.drawImage(ImageLoader.getImage("lower_bar"),0,(int)lowerBarLocation.y,null);
+        g.drawString(String.valueOf(spaceShip.heartCnt),45,(int)lowerBarLocation.y + 40);
+        g.drawString(String.valueOf(spaceShip.missileCnt),110,(int)lowerBarLocation.y + 40);
+
+
         drawHeat((int) (spaceShip.currentHeat / 100 * 16), g);
 
 
@@ -157,9 +149,6 @@ public class GamePanel extends FullSizePanel {
 
         }
 
-
-//        testPowerUp.draw(g);
-//        testPowerUp.update();
 
         int missileWidth , missileHeight;
         missileWidth = ImageLoader.getImage("missile").getWidth(null);

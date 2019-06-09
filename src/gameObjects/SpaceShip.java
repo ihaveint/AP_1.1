@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class SpaceShip implements Drawable{
 
+    public int heartCnt , missileCnt;
     public static double currentHeat = 0;
     public static Location drawLocation = GameMouseMotionListener.mouseLocation;
     boolean showWarning = false;
@@ -29,6 +30,8 @@ public class SpaceShip implements Drawable{
     }
     public SpaceShip() {
         test = new BeCareFul();
+        heartCnt = 5;
+        missileCnt = 3;
         loadBoxes();
     }
     @Override
@@ -65,6 +68,7 @@ public class SpaceShip implements Drawable{
         for (Bird bird : GamePanel.getInstance().currentLevel.final_birds){
             if (hitBird(bird) && bird.died == false){
                 if (!showWarning){
+                    heartCnt --;
                     test.currentPercentage = 0;
                     test.currentLayer = 1;
                 }
@@ -85,6 +89,11 @@ public class SpaceShip implements Drawable{
                 resumeAnimation.currentPercentage = 0;
                 showResume = false;
             }
+        }
+
+
+        if(heartCnt <= 0){
+            GamePanelController.getInstance().MoveBackToPlayerMenu();
         }
 
 

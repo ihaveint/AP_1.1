@@ -23,6 +23,7 @@ public class ImageLoader {
             hashMap.put("RedBullet2",ImageIO.read(new File("src/resources/red2.png")));
             hashMap.put("red_powerUp",ImageIO.read(new File("src/resources/RedBox.png")));
             hashMap.put("LogoName",ImageIO.read(new File("src/resources/Ci5logo.png")));
+            hashMap.put("lower_bar",ImageIO.read(new File("src/resources/bar.png")).getScaledInstance(460/3*2,90/3*2,Image.SCALE_AREA_AVERAGING));
             hashMap.put("OK",ImageIO.read(new File("src/resources/OK.png")));
             hashMap.put("missile",ImageIO.read(new File("src/resources/missile.png")));
             hashMap.put("choose_menu",ImageIO.read(new File("src/resources/choose_menu.jpg")).getScaledInstance(Toolkit.getDefaultToolkit().getScreenSize().width,Toolkit.getDefaultToolkit().getScreenSize().height,Image.SCALE_AREA_AVERAGING));

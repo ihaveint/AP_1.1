@@ -38,7 +38,10 @@ public class GamePanelController {
     }
 
     public void newMissile(int x, int y) {
+        if (GamePanel.getInstance().spaceShip.missileCnt ==  0 ) return ;
+        GamePanel.getInstance().spaceShip.missileCnt --;
         GamePanel.missiles.add(new Missile(x,y));
+
     }
 
     public void MoveBackToPlayerMenu() {
