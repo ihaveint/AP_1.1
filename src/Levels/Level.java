@@ -66,7 +66,7 @@ public class Level implements Drawable {
                 continue;
 
             }
-            else if (!sampleBird.insideScreen()) continue;
+            else if (sampleBird instanceof MorgheParish && !sampleBird.insideScreen()) continue;
             else{
                 finalBirdsAfter.add(sampleBird);
             }
