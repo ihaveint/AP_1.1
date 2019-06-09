@@ -11,12 +11,17 @@ public class RedPowerUp extends PowerUps {
     Image img;
     String boxName = "RedBox.txt";
     public RedPowerUp(){
-        img = ImageLoader.getImage("red_powerUp");
-        loadBoxes(boxName);
+        this((int)defaultLocation.x,(int)defaultLocation.y);
 
     }
 
     ArrayList<Rectangle> rectangles = new ArrayList<>();
+
+    public RedPowerUp(int x, int y) {
+        location = new Location(x,y);
+        img = ImageLoader.getImage("red_powerUp");
+        loadBoxes(boxName);
+    }
 
     public void loadBoxes(String boxFileName , int tahghsimBar){
         rectangles = RectLoader.loadRectangles("src/GameObjects/" + boxFileName);

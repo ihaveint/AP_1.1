@@ -8,7 +8,7 @@ public abstract class PowerUps implements Drawable{
 
     public boolean visible =  true;
     Location location = new Location(500,500);
-
+    static Location defaultLocation = new Location(500,500);
     public  abstract  void update();
 
     public abstract boolean hit(Rectangle rectangle);

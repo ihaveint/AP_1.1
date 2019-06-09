@@ -62,6 +62,7 @@ public class GamePanel extends FullSizePanel {
         currentLevel.sampleBirds = sampleBirds;
         currentLevel.final_birds = final_birds;
         currentLevel.powerUps.add(new RedPowerUp());
+        currentLevel.powerUps.add(new RedPowerUp(600,0));
         Level level2 = new Level();
         level2.final_birds.add(new MorghePile());
         level2.final_birds.add(new MorghePile());
