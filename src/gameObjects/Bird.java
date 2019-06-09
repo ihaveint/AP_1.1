@@ -18,7 +18,7 @@ public abstract class Bird implements Drawable{
     public boolean died = false;
     public long shakeTime;
     int bandageWidth , bandageHeight;
-    HpBar hp = new HpBar();
+    public HpBar hp = new HpBar();
     boolean visible = true;
     static String defaultBoxName = "sampleBox2.txt";
     ArrayList<Rectangle> rectangles = new ArrayList<>();
@@ -141,19 +141,6 @@ public abstract class Bird implements Drawable{
         Graphics2D g2d = (Graphics2D) g;
         g2d.setComposite(ac);
 
-        /*
-        g.drawImage(img,(int)getDrawLocation().x , (int)getDrawLocation().y , null);
-        hp.x = (int)birdLocation.x + 80;
-        hp.y = (int)birdLocation.y - 120;
-        hp.draw(g);
-        bandageWidth =  ImageLoader.getImage("bandage").getWidth(null);
-        bandageHeight =  ImageLoader.getImage("bandage").getHeight(null);
-        System.out.println(bandageLocations.size());
-        for (Location bandageLocation : bandageLocations){
-
-            g.drawImage(ImageLoader.getImage("bandage"),(int)bandageLocation.x - bandageWidth/2,(int)bandageLocation.y - bandageHeight/ 2,null);
-        }
-        */
     }
 
     public void update(boolean paused){

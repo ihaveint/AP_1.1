@@ -78,12 +78,12 @@ public class singleRedShoot implements  Drawable{
 
     public void checkBarkhord() {
         if (visible == false) return ;
-        for (SampleBird sampleBird : GamePanel.getInstance().currentLevel.sampleBirds) {
-            if (hitChicken(sampleBird)){
-                sampleBird.reduceHeart(25);
-                sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,Rectangle.common_cache.ymin);
-            }
-        }
+//        for (SampleBird sampleBird : GamePanel.getInstance().currentLevel.sampleBirds) {
+//            if (hitChicken(sampleBird)){
+//                sampleBird.reduceHeart(25);
+//                sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,Rectangle.common_cache.ymin);
+//            }
+//        }
 
 
         for (Bird bird : GamePanel.getInstance().currentLevel.final_birds){

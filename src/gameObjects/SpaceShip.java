@@ -62,15 +62,15 @@ public class SpaceShip implements Drawable{
                 powerUp.visible = false;
             }
         }
-        for (SampleBird sampleBird : GamePanel.getInstance().currentLevel.sampleBirds) {
-            if (hit(sampleBird) && sampleBird.died == false){
-                if (!showWarning){
-                    test.currentPercentage = 0;
-                    test.currentLayer = 1;
-                }
-                showWarning = true;
-            }
-        }
+//        for (SampleBird sampleBird : GamePanel.getInstance().currentLevel.sampleBirds) {
+//            if (hit(sampleBird) && sampleBird.died == false){
+//                if (!showWarning){
+//                    test.currentPercentage = 0;
+//                    test.currentLayer = 1;
+//                }
+//                showWarning = true;
+//            }
+//        }
         for (Bird bird : GamePanel.getInstance().currentLevel.final_birds){
             if (hitBird(bird) && bird.died == false){
                 if (!showWarning){

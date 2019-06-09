@@ -18,15 +18,14 @@ import java.util.List;
 public class GamePanel extends FullSizePanel {
     public boolean running = false;
     public static boolean paused = false;
-//    public static ArrayList<shoot> shoots = new ArrayList<shoot>();
+
     public static ArrayList<RedShoot> main_shoots = new ArrayList<>();
     public static ArrayList<Missile> missiles = new ArrayList<>();
-//    public static Location mouseLocation = new Location(700,700);
     public int spaceShipWidth , spaceShipHeight;
     public int shootWidth , shootHeight;
     public static Resume resumeAnimation = new Resume();
     public SpaceShip spaceShip = new SpaceShip();
-    private static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
+//    private static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
     private static ArrayList<small_explosion> small_explosions = new ArrayList<>();
     public static ArrayList<Bird> final_birds = new ArrayList<>();
 
@@ -38,10 +37,15 @@ public class GamePanel extends FullSizePanel {
     }
 
     public static void reset() {
-        for (SampleBird sampleBird : sampleBirds){
-            sampleBird.hp.increasing = false;
-            sampleBird.hp.decreasing = false;
-            sampleBird.hp.drawPercentage = 0;
+//        for (SampleBird sampleBird : sampleBirds){
+//            sampleBird.hp.increasing = false;
+//            sampleBird.hp.decreasing = false;
+//            sampleBird.hp.drawPercentage = 0;
+//        }
+        for (Bird bird : final_birds){
+            bird.hp.increasing = false;
+            bird.hp.decreasing = false;
+            bird.hp.drawPercentage = 0;
         }
     }
 
@@ -58,14 +62,16 @@ public class GamePanel extends FullSizePanel {
         final_birds.add(new MorgheEntehari());
         final_birds.add(new MorghePile());
         final_birds.add(new MorgheParish());
-        sampleBirds.add(new SampleBird(0,100));
+        final_birds.add(new MorgheParish());
 
-        sampleBirds.add(new SampleBird(600,300));
+//        sampleBirds.add(new SampleBird(0,100));
+
+//        sampleBirds.add(new SampleBird(600,300));
 
 
 
 
-        currentLevel.sampleBirds = sampleBirds;
+//        currentLevel.sampleBirds = sampleBirds;
         currentLevel.final_birds = final_birds;
         currentLevel.powerUps.add(new RedPowerUp());
         currentLevel.powerUps.add(new RedPowerUp(600,0));
@@ -97,15 +103,15 @@ public class GamePanel extends FullSizePanel {
         else paused = true;
     }
 
-    public static synchronized void removeBird(int id) {
-        for (int ptr = 0 ; ptr < sampleBirds.size() ; ptr ++){
-            if (sampleBirds.get(ptr).id == id){
-                sampleBirds.remove(ptr);
-                break;
-            }
-        }
-
-    }
+//    public static synchronized void removeBird(int id) {
+//        for (int ptr = 0 ; ptr < sampleBirds.size() ; ptr ++){
+//            if (sampleBirds.get(ptr).id == id){
+//                sampleBirds.remove(ptr);
+//                break;
+//            }
+//        }
+//
+//    }
 
     public static void drawHeat(int i , Graphics g) {
         g.drawImage(ImageLoader.getImage("heat" +i),0,0,400,400,null);
