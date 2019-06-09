@@ -12,6 +12,7 @@ public class Level implements Drawable {
     int levelId;
     static int levelCounter = 0;
     static ArrayList<Level> levelsInstances = new ArrayList<>();
+    public ArrayList<PowerUps> powerUps = new ArrayList<>();
     public ArrayList<SampleBird>  sampleBirds = new ArrayList<>();
     public ArrayList<Bird> final_birds = new ArrayList<>();
     public Level() {

@@ -18,7 +18,8 @@ import java.util.List;
 public class GamePanel extends FullSizePanel {
     public boolean running = false;
     public static boolean paused = false;
-    public static ArrayList<shoot> shoots = new ArrayList<shoot>();
+//    public static ArrayList<shoot> shoots = new ArrayList<shoot>();
+    public static ArrayList<RedShoot> main_shoots = new ArrayList<>();
     public static ArrayList<Missile> missiles = new ArrayList<>();
 //    public static Location mouseLocation = new Location(700,700);
     public int spaceShipWidth , spaceShipHeight;
@@ -106,7 +107,6 @@ public class GamePanel extends FullSizePanel {
     public static boolean delayHeat = false;
     long startDelay = -5000;
     public Level currentLevel = new Level();
-    RedShoot testRedShoot = new RedShoot(2);
 
     @Override
     public void paintComponent(Graphics g) {
@@ -131,23 +131,20 @@ public class GamePanel extends FullSizePanel {
         drawHeat((int) (spaceShip.currentHeat / 100 * 16), g);
 
 
-        testRedShoot.upgrade();
-        testRedShoot.draw(g);
-        testRedShoot.update();
 
 
 
         for (small_explosion small_explosion : small_explosions){
             small_explosion.draw(g);
         }
-        ArrayList<shoot> currentShoots = new ArrayList<>();
-        for (shoot shoot : shoots){
+        ArrayList<UpgradbleShoot> currentShoots = new ArrayList<>();
+        for (UpgradbleShoot shoot : main_shoots){
             currentShoots.add(shoot);
         }
-        for (shoot tir : currentShoots){
+        for (UpgradbleShoot tir : currentShoots){
             tir.checkBarkhord();
         }
-        for (shoot tir : currentShoots){
+        for (UpgradbleShoot tir : currentShoots){
 
             tir.draw(g);
 
@@ -166,57 +163,6 @@ public class GamePanel extends FullSizePanel {
         LevelManager.getInstance().update();
         currentLevel = LevelManager.getInstance().currentLevel;
         currentLevel.draw(g);
-//
-//        for (SampleBird sampleBird : sampleBirds){
-//            sampleBird.draw(g);
-//        }
-//
-//        for (Bird bird : final_birds){
-//            bird.draw(g);
-//        }
-//        spaceShip.draw(g);
-//
-//        if (SpaceShip.showResume) {
-//            resumeAnimation.draw(g);
-//            resumeAnimation.update();
-//        }
-//        for (shoot tir : currentShoots){
-//            tir.update(paused||spaceShip.showResume);
-//        }
-//
-//        for (Missile missile : missiles){
-//            missile.update(paused||spaceShip.showResume);
-//        }
-//        spaceShip.update(paused);
-//        for (SampleBird sampleBird : sampleBirds){
-//            sampleBird.update(paused || spaceShip.showResume);
-//        }
-//
-//
-//        for (int i = 0 ; i < sampleBirds.size() ; i ++) {
-//            SampleBird sampleBird = sampleBirds.get(i);
-//                if ((System.currentTimeMillis() - sampleBird.shakeStartTime > sampleBird.shakeTime) && sampleBird.died) {
-//                    GamePanel.removeBird(sampleBird.id);
-//                    i --;
-//
-//                }
-//        }
-//
-//        ArrayList<shoot> tirReplacement = new ArrayList<>();
-//        for (shoot tir : shoots){
-//            if (tir.y >= -50){
-//                tirReplacement.add(tir);
-//            }
-//
-//        }
-//        shoots = tirReplacement;
-//
-//
-//        for (Bird bird : final_birds){
-//            bird.update();
-//        }
-//
-
 
         spaceShip.draw(g);
 
@@ -224,7 +170,7 @@ public class GamePanel extends FullSizePanel {
             resumeAnimation.draw(g);
             resumeAnimation.update();
         }
-        for (shoot tir : currentShoots){
+        for (UpgradbleShoot tir : currentShoots){
             tir.update(paused||spaceShip.showResume);
         }
 

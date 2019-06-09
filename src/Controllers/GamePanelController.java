@@ -1,10 +1,7 @@
 package Controllers;
 
 import Listener.GameMouseMotionListener;
-import gameObjects.Missile;
-import gameObjects.Rectangle;
-import gameObjects.SampleBird;
-import gameObjects.shoot;
+import gameObjects.*;
 import menus.GameFrame;
 import menus.GamePanel;
 import menus.PauseFrame;
@@ -29,7 +26,8 @@ public class GamePanelController {
 
 
     public void newShoot(int x , int y) {
-        GamePanel.shoots.add(new shoot(x , y));
+//        GamePanel.main.add(new shoot(x , y));
+        GamePanel.main_shoots.add(new RedShoot(x , y));
     }
 
     public void newMissile(int x, int y) {

@@ -17,7 +17,7 @@ public class shoot implements Drawable{
     ArrayList<Rectangle> rectangles = new ArrayList<>();
     String type = "shoot";
     public boolean visible = true;
-    Rectangle whichRect;
+//    Rectangle whichRect;
     public void loadBoxes(){
         rectangles = RectLoader.loadRectangles("src/GameObjects/BulletBoxes.txt");
 
@@ -65,7 +65,7 @@ public class shoot implements Drawable{
             Rectangle check = new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2);
 
             if (bird.hit(check)){
-                whichRect = check;
+//                whichRect = check;
                 visible = false;
                 bird.shake(false , 300);
                 return true;
@@ -90,7 +90,7 @@ public class shoot implements Drawable{
             Rectangle check = new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2);
 
             if (bird.hit(check)){
-                whichRect = check;
+//                whichRect = check;
                 visible = false;
                 bird.shake(false , 300);
                 return true;
