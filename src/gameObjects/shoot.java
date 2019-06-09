@@ -41,7 +41,7 @@ public class shoot implements Drawable{
 
     public void checkBarkhord(){
         if (visible == false) return ;
-        for (SampleBird sampleBird : GamePanel.sampleBirds) {
+        for (SampleBird sampleBird : GamePanel.getInstance().currentLevel.sampleBirds) {
             if (hitChicken(sampleBird)){
                 sampleBird.reduceHeart(25);
                 sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,Rectangle.common_cache.ymin);
@@ -49,7 +49,7 @@ public class shoot implements Drawable{
         }
 
 
-        for (Bird bird : GamePanel.final_birds){
+        for (Bird bird : GamePanel.getInstance().currentLevel.final_birds){
             if (hitBird(bird)){
                 bird.reduceHeart(25);
                 bird.addBandage((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,Rectangle.common_cache.ymin);

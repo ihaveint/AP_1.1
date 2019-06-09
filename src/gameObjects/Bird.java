@@ -12,8 +12,8 @@ public abstract class Bird implements Drawable{
 
     Image img;
     int heart = 100;
-    boolean died = false;
-    long shakeTime;
+    public boolean died = false;
+    public long shakeTime;
     int bandageWidth , bandageHeight;
     HpBar hp = new HpBar();
     boolean visible = true;
@@ -142,7 +142,7 @@ public abstract class Bird implements Drawable{
         */
     }
 
-    public void update(){
+    public void update(boolean paused){
 
     }
     public void expand_hp(){

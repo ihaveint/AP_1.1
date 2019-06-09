@@ -54,7 +54,7 @@ public class SpaceShip implements Drawable{
         if (showWarning)
             test.update();
 
-        for (SampleBird sampleBird : GamePanel.sampleBirds) {
+        for (SampleBird sampleBird : GamePanel.getInstance().currentLevel.sampleBirds) {
             if (hit(sampleBird) && sampleBird.died == false){
                 if (!showWarning){
                     test.currentPercentage = 0;

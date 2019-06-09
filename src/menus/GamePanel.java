@@ -2,6 +2,7 @@ package menus;
 
 import Animations.Resume.Resume;
 import Animations.explosions.small_explosion;
+import Levels.Level;
 import Listener.GameKeyListener;
 import Listener.GameMouseListener;
 import Listener.GameMouseMotionListener;
@@ -23,8 +24,8 @@ public class GamePanel extends FullSizePanel {
     public int shootWidth , shootHeight;
     public static Resume resumeAnimation = new Resume();
     public SpaceShip spaceShip = new SpaceShip();
-    public static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
-    public static ArrayList<small_explosion> small_explosions = new ArrayList<>();
+    private static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
+    private static ArrayList<small_explosion> small_explosions = new ArrayList<>();
     public static ArrayList<Bird> final_birds = new ArrayList<>();
 
     public static GamePanel ourInstance = new GamePanel();
@@ -55,6 +56,9 @@ public class GamePanel extends FullSizePanel {
         sampleBirds.add(new SampleBird(0,100));
 
         sampleBirds.add(new SampleBird(600,300));
+
+        currentLevel.sampleBirds = sampleBirds;
+        currentLevel.final_birds = final_birds;
 
         spaceShipWidth = ImageLoader.getImage("SpaceShip").getWidth(null);
         spaceShipHeight = ImageLoader.getImage("SpaceShip").getHeight(null);
@@ -95,6 +99,7 @@ public class GamePanel extends FullSizePanel {
 
     public static boolean delayHeat = false;
     long startDelay = -5000;
+    public Level currentLevel = new Level();
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -114,9 +119,9 @@ public class GamePanel extends FullSizePanel {
             delayHeat = false;
 
         }
-//        if (!delayHeat) {
-            drawHeat((int) (spaceShip.currentHeat / 100 * 16), g);
-//        }
+
+        drawHeat((int) (spaceShip.currentHeat / 100 * 16), g);
+
 
 
 
@@ -147,14 +152,59 @@ public class GamePanel extends FullSizePanel {
         }
 
 
-        for (SampleBird sampleBird : sampleBirds){
-            sampleBird.draw(g);
-        }
+        currentLevel.draw(g);
+//
+//        for (SampleBird sampleBird : sampleBirds){
+//            sampleBird.draw(g);
+//        }
+//
+//        for (Bird bird : final_birds){
+//            bird.draw(g);
+//        }
+//        spaceShip.draw(g);
+//
+//        if (SpaceShip.showResume) {
+//            resumeAnimation.draw(g);
+//            resumeAnimation.update();
+//        }
+//        for (shoot tir : currentShoots){
+//            tir.update(paused||spaceShip.showResume);
+//        }
+//
+//        for (Missile missile : missiles){
+//            missile.update(paused||spaceShip.showResume);
+//        }
+//        spaceShip.update(paused);
+//        for (SampleBird sampleBird : sampleBirds){
+//            sampleBird.update(paused || spaceShip.showResume);
+//        }
+//
+//
+//        for (int i = 0 ; i < sampleBirds.size() ; i ++) {
+//            SampleBird sampleBird = sampleBirds.get(i);
+//                if ((System.currentTimeMillis() - sampleBird.shakeStartTime > sampleBird.shakeTime) && sampleBird.died) {
+//                    GamePanel.removeBird(sampleBird.id);
+//                    i --;
+//
+//                }
+//        }
+//
+//        ArrayList<shoot> tirReplacement = new ArrayList<>();
+//        for (shoot tir : shoots){
+//            if (tir.y >= -50){
+//                tirReplacement.add(tir);
+//            }
+//
+//        }
+//        shoots = tirReplacement;
+//
+//
+//        for (Bird bird : final_birds){
+//            bird.update();
+//        }
+//
 
-//        test.draw(g);
-        for (Bird bird : final_birds){
-            bird.draw(g);
-        }
+
         spaceShip.draw(g);
 
         if (SpaceShip.showResume) {
@@ -163,43 +213,14 @@ public class GamePanel extends FullSizePanel {
         }
         for (shoot tir : currentShoots){
             tir.update(paused||spaceShip.showResume);
-
         }
 
         for (Missile missile : missiles){
             missile.update(paused||spaceShip.showResume);
         }
+
         spaceShip.update(paused);
-        for (SampleBird sampleBird : sampleBirds){
-            sampleBird.update(paused || spaceShip.showResume);
-        }
 
-
-
-        for (int i = 0 ; i < sampleBirds.size() ; i ++) {
-            SampleBird sampleBird = sampleBirds.get(i);
-                if ((System.currentTimeMillis() - sampleBird.shakeStartTime > sampleBird.shakeTime) && sampleBird.died) {
-                    GamePanel.removeBird(sampleBird.id);
-                    i --;
-
-                }
-        }
-
-        ArrayList<shoot> tirReplacement = new ArrayList<>();
-        for (shoot tir : shoots){
-            if (tir.y >= -50){
-                tirReplacement.add(tir);
-            }
-
-        }
-        shoots = tirReplacement;
-
-
-
-//        test.update();
-        for (Bird bird : final_birds){
-            bird.update();
-        }
         if (paused){
             PauseFrame.getInstance().draw(g);
             running = false;

@@ -45,7 +45,8 @@ public abstract class RandomBird extends Bird {
         }
         return false;
     }
-    public void update(){
+    public void update(boolean paused){
+        if (paused) return ;
         if (locked){
             moveInSpaceShipDirection();
         }

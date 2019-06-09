@@ -19,8 +19,8 @@ public class MorgheEntehari extends RandomBird {
     }
 
 
-    public void update(){
-        long now = System.currentTimeMillis();
+    public void update(boolean paused){
+        if (paused) return ;
 //        if (now - lastAmbush >= 10000){
         remaining --;
         if (remaining <= 0){
@@ -30,7 +30,7 @@ public class MorgheEntehari extends RandomBird {
             remaining = 1500;
         }
 
-        super.update();
+        super.update(paused);
 
 
     }

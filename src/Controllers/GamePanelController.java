@@ -21,7 +21,7 @@ public class GamePanelController {
     }
 
     public static void shakeScreen() {
-        for (SampleBird sampleBird : GamePanel.sampleBirds) {
+        for (SampleBird sampleBird : GamePanel.getInstance().currentLevel.sampleBirds) {
             if (!sampleBird.died)
                 sampleBird.shake();
         }

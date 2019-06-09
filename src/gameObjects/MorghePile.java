@@ -13,7 +13,8 @@ public class MorghePile extends Bird {
         super(defaultImage = ImageLoader.getImage("morghePile"),"PileBoxes.txt",3);
 
     }
-    public void update(){
+    public void update(boolean paused){
+        if (paused) return ;
         int deltaX = sign * 2;
         birdLocation.x += sign * 2;
         if (birdLocation.x + img.getWidth(null)/2 > Toolkit.getDefaultToolkit().getScreenSize().getWidth() || birdLocation.x - img.getWidth(null)/2 < 0) {
