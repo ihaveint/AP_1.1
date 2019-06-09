@@ -106,6 +106,8 @@ public class GamePanel extends FullSizePanel {
     public static boolean delayHeat = false;
     long startDelay = -5000;
     public Level currentLevel = new Level();
+    RedShoot testRedShoot = new RedShoot(2);
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -129,6 +131,10 @@ public class GamePanel extends FullSizePanel {
         drawHeat((int) (spaceShip.currentHeat / 100 * 16), g);
 
 
+        testRedShoot.upgrade();
+        testRedShoot.draw(g);
+        testRedShoot.update();
+
 
 
         for (small_explosion small_explosion : small_explosions){
@@ -139,7 +145,6 @@ public class GamePanel extends FullSizePanel {
             currentShoots.add(shoot);
         }
         for (shoot tir : currentShoots){
-
             tir.checkBarkhord();
         }
         for (shoot tir : currentShoots){
