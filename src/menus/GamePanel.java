@@ -31,6 +31,7 @@ public class GamePanel extends FullSizePanel {
     public static ArrayList<Bird> final_birds = new ArrayList<>();
 
     public static GamePanel ourInstance = new GamePanel();
+    public Level currentLevel ;
 
     public static GamePanel getInstance() {
         return ourInstance;
@@ -52,12 +53,17 @@ public class GamePanel extends FullSizePanel {
     public GamePanel(){
         super();
 
+        currentLevel= new  Level();
         final_birds.add(new MorgheEntehari());
         final_birds.add(new MorgheEntehari());
         final_birds.add(new MorghePile());
+        final_birds.add(new MorgheParish());
         sampleBirds.add(new SampleBird(0,100));
 
         sampleBirds.add(new SampleBird(600,300));
+
+
+
 
         currentLevel.sampleBirds = sampleBirds;
         currentLevel.final_birds = final_birds;
@@ -67,6 +73,7 @@ public class GamePanel extends FullSizePanel {
         level2.final_birds.add(new MorghePile());
         level2.final_birds.add(new MorghePile());
         level2.final_birds.get(0).birdLocation = new Location(600,600);
+        level2.final_birds.add(new MorgheEntehari());
         currentLevel.nextLevel = level2;
         spaceShipWidth = ImageLoader.getImage("SpaceShip").getWidth(null);
         spaceShipHeight = ImageLoader.getImage("SpaceShip").getHeight(null);
@@ -107,7 +114,7 @@ public class GamePanel extends FullSizePanel {
 
     public static boolean delayHeat = false;
     long startDelay = -5000;
-    public Level currentLevel = new Level();
+
 
 //    RedPowerUp testPowerUp = new RedPowerUp();
     @Override

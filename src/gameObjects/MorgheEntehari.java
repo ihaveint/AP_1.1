@@ -2,7 +2,9 @@ package gameObjects;
 
 import Controllers.GamePanelController;
 import Listener.GameMouseMotionListener;
+import RandomGenerator.RandomLocationGenerator;
 import menus.GamePanel;
+import resources.Location;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,12 +15,23 @@ public class MorgheEntehari extends RandomBird {
     static int remaining = 1500;
     static ArrayList<MorgheEntehari> instances = new ArrayList<>();
     public MorgheEntehari(){
-        super();
+        this(RandomLocationGenerator.getRandomLocation());
+    }
 
+    public MorgheEntehari(Location location){
+        super();
         instances.add(this);
     }
 
-
+    public ArrayList<MorgheEntehari> filterInstances(int levelId){
+        ArrayList<MorgheEntehari> ret= new ArrayList<>();
+        for  (MorgheEntehari morgheEntehari : instances){
+            if(morgheEntehari.whichLevel==levelId){
+                ret.add(morgheEntehari);
+            }
+        }
+        return ret;
+    }
     public void update(boolean paused){
         if (paused) return ;
 //        if (now - lastAmbush >= 10000){

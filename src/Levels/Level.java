@@ -1,15 +1,18 @@
 package Levels;
 
+import RandomGenerator.RandomLocationGenerator;
 import gameObjects.*;
 import menus.GamePanel;
+import resources.Location;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 public class Level implements Drawable {
+    long powerUpCounter = 1000;
     public Level nextLevel = null;
     String displayName ;
-    int levelId;
+    public int levelId;
     static int levelCounter = 0;
     static ArrayList<Level> levelsInstances = new ArrayList<>();
     public ArrayList<PowerUps> powerUps = new ArrayList<>();
@@ -26,12 +29,19 @@ public class Level implements Drawable {
         levelsInstances.add(this);
     }
 
+    
+
 
 
     @Override
     public void draw(Graphics g) {
 
-
+        powerUpCounter -= 3;
+        if (powerUpCounter <= 0){
+            powerUpCounter =1000;
+            Location randomLocation = RandomLocationGenerator.getRandomLocation();
+            powerUps.add(new RedPowerUp((int)randomLocation.x,(int)randomLocation.y));
+        }
         for (SampleBird sampleBird : sampleBirds){
             sampleBird.draw(g);
         }

@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 public abstract class Bird implements Drawable{
 
+    int whichLevel = 1;
+
+
     Image img;
     int heart = 100;
     public boolean died = false;
@@ -27,6 +30,10 @@ public abstract class Bird implements Drawable{
     public Bird(){
         this(defaultImage);
     }
+
+    public void setLevel(int id){
+        whichLevel = id;
+    }
     public Bird(Image img){
         this(img,defaultBoxName);
 
@@ -37,9 +44,16 @@ public abstract class Bird implements Drawable{
 
     }
     public Bird(Image img, String boxName , int taghsimBar){
+        this(img,boxName,taghsimBar,1);
+    }
+
+    public Bird(Image img, String boxName , int taghsimBar,int level){
+        whichLevel=level;
         this.img = img;
         loadBoxes(boxName,taghsimBar);
     }
+
+
     public void loadBoxes(String boxFileName , int tahghsimBar){
         rectangles = RectLoader.loadRectangles("src/GameObjects/" + boxFileName);
         for (Rectangle rect : rectangles){

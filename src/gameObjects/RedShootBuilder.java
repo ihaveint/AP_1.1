@@ -27,12 +27,15 @@ public class RedShootBuilder {
         if (cntShoots >= 2){
             singleRedShoot rightShoot = new singleRedShoot("red2.txt", ImageLoader.getImage("RedBullet"),new Location(buildLocation.x + 20,buildLocation.y),0,-3);
             response.add(rightShoot);
-//            singleRedShoot rightShoot = new singleRedShoot("red2.txt", ImageLoader.getImage("RedBullet2"),new Location(buildLocation.x + 20,buildLocation.y),2,-2);
-//            response.add(rightShoot);
+
 
         }
         if (cntShoots >= 3){
             singleRedShoot rightShoot = new singleRedShoot("red2.txt", ImageLoader.getImage("RedBullet"),new Location(buildLocation.x - 20,buildLocation.y),0,-3);
+            response.add(rightShoot);
+        }
+        if (cntShoots >= 4){
+            singleRedShoot rightShoot = new singleRedShoot("red2.txt", ImageLoader.getImage("RedBullet2"),new Location(buildLocation.x + 40,buildLocation.y),2,-2);
             response.add(rightShoot);
         }
 

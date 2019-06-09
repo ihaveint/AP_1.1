@@ -1,6 +1,7 @@
 package gameObjects;
 
 import Listener.GameMouseMotionListener;
+import RandomGenerator.RandomLocationGenerator;
 import resources.ImageLoader;
 import resources.Location;
 import resources.Vector;
@@ -11,8 +12,16 @@ public abstract class RandomBird extends Bird {
 
     public boolean locked = false;
     Location randomLocation = null;
+
+
     public RandomBird(){
+        this(RandomLocationGenerator.getRandomLocation());
+
+    }
+    public RandomBird(Location location){
         super(ImageLoader.getImage("randomBird"),"entehariBoxes.txt",3);
+        birdLocation= location;
+
     }
     public double get_dist(Location a , Location b){
         return (a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y);
