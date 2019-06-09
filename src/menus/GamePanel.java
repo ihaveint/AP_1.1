@@ -25,6 +25,7 @@ public class GamePanel extends FullSizePanel {
     public SpaceShip spaceShip = new SpaceShip();
     public static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
     public static ArrayList<small_explosion> small_explosions = new ArrayList<>();
+    public static ArrayList<Bird> final_birds = new ArrayList<>();
 
     public static GamePanel ourInstance = new GamePanel();
 
@@ -45,11 +46,11 @@ public class GamePanel extends FullSizePanel {
 
     }
 //    RandomBird test;
-    MorgheEntehari test;
     public GamePanel(){
         super();
 
-        test = new MorgheEntehari();
+        final_birds.add(new MorgheEntehari());
+        final_birds.add(new MorgheEntehari());
         sampleBirds.add(new SampleBird(0,100));
 
         sampleBirds.add(new SampleBird(600,300));
@@ -148,7 +149,10 @@ public class GamePanel extends FullSizePanel {
             sampleBird.draw(g);
         }
 
-        test.draw(g);
+//        test.draw(g);
+        for (Bird bird : final_birds){
+            bird.draw(g);
+        }
         spaceShip.draw(g);
 
         if (SpaceShip.showResume) {
@@ -190,7 +194,10 @@ public class GamePanel extends FullSizePanel {
 
 
 
-        test.update();
+//        test.update();
+        for (Bird bird : final_birds){
+            bird.update();
+        }
         if (paused){
             PauseFrame.getInstance().draw(g);
             running = false;

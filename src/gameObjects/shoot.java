@@ -40,14 +40,39 @@ public class shoot implements Drawable{
     }
 
     public void checkBarkhord(){
+        if (visible == false) return ;
         for (SampleBird sampleBird : GamePanel.sampleBirds) {
             if (hitChicken(sampleBird)){
                 sampleBird.reduceHeart(25);
-//                sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,(Rectangle.common_cache.ymin+Rectangle.common_cache.ymax)/2);
                 sampleBird.addBandate((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,Rectangle.common_cache.ymin);
             }
         }
 
+
+        for (Bird bird : GamePanel.final_birds){
+            if (hitBird(bird)){
+                bird.reduceHeart(25);
+                bird.addBandage((Rectangle.common_cache.xmin+Rectangle.common_cache.xmax)/2,Rectangle.common_cache.ymin);
+            }
+        }
+
+
+
+    }
+
+    private boolean hitBird(Bird bird) {
+        for (Rectangle rectangle : this.rectangles){
+            Rectangle check = new Rectangle(rectangle.xmin + x  - shootWidth/2, rectangle.ymin + y -shootHeight/2 , rectangle.xmax + x  -shootWidth/2 , rectangle.ymax + y - shootHeight/2);
+
+            if (bird.hit(check)){
+                whichRect = check;
+                visible = false;
+//                bird.shake(false , 300);
+                return true;
+
+            }
+        }
+        return false;
     }
 
     @Override

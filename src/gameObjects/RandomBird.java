@@ -7,13 +7,12 @@ import resources.Vector;
 
 import java.awt.*;
 
-public class RandomBird extends Bird {
+public abstract class RandomBird extends Bird {
 
     public boolean locked = false;
     Location randomLocation = null;
     public RandomBird(){
-        super(ImageLoader.getImage("randomBird"));
-
+        super(ImageLoader.getImage("randomBird"),"entehariBoxes.txt",3);
     }
     public double get_dist(Location a , Location b){
         return (a.x-b.x)*(a.x-b.x) + (a.y-b.y)*(a.y-b.y);
@@ -26,7 +25,12 @@ public class RandomBird extends Bird {
         return randomLocation;
     }
     public void moveInDirection(Vector moveDirection){
+
         moveDirection = moveDirection.get_yekke();
+        for (Location bandageLocation : bandageLocations){
+            bandageLocation.x += moveDirection.getX();
+            bandageLocation.y += moveDirection.getY();
+        }
         birdLocation.x += moveDirection.getX();
         birdLocation.y += moveDirection.getY();
     }

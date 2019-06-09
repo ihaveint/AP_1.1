@@ -30,16 +30,8 @@ public class MorgheEntehari extends RandomBird {
             remaining = 1500;
         }
 
+        super.update();
 
-        if (locked){
-            moveInSpaceShipDirection();
-        }
-        else {
-            if (sholdGenerateNewRandomLocation()) {
-                randomLocation = get_randomLocation();
-            }
-            moveInRandomDirection();
-        }
 
     }
 }
