@@ -10,12 +10,13 @@ public class LevelManager {
     }
 
     public Level currentLevel;
+    public Level firstLevel;
     private LevelManager() {
         currentLevel = GamePanel.getInstance().currentLevel;
     }
 
     public void update(){
-        if (currentLevel.levelFinished()){
+        if (currentLevel.levelFinished() && currentLevel.nextLevel != null){
             currentLevel = currentLevel.nextLevel;
         }
     }

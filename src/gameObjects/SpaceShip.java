@@ -63,7 +63,7 @@ public class SpaceShip implements Drawable{
                 showWarning = true;
             }
         }
-        for (Bird bird : GamePanel.final_birds){
+        for (Bird bird : GamePanel.getInstance().currentLevel.final_birds){
             if (hitBird(bird) && bird.died == false){
                 if (!showWarning){
                     test.currentPercentage = 0;
