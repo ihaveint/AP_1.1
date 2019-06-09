@@ -21,12 +21,18 @@ public class MorgheParish extends Bird{
         this.sign = sign;
         birdLocation = location;
     }
+    public boolean insideScreen(){
+        if (birdLocation.x - img.getWidth(null)/2 > Toolkit.getDefaultToolkit().getScreenSize().getWidth() || birdLocation.x + img.getWidth(null)/2 < 0) {
+            return false;
+        }
+        return true;
+    }
 
     public void update(boolean paused){
         if (paused) return ;
         int deltaX = sign * 2;
         birdLocation.x += sign * 2;
-        if (birdLocation.x - img.getWidth(null)/2 > Toolkit.getDefaultToolkit().getScreenSize().getWidth() || birdLocation.x + img.getWidth(null)/2 < 0) {
+        if (!insideScreen()){
             visible = false;
         }
         for (Location bandageLocation : bandageLocations){

@@ -17,6 +17,8 @@ public class Level implements Drawable {
     static ArrayList<Level> levelsInstances = new ArrayList<>();
     public ArrayList<PowerUps> powerUps = new ArrayList<>();
     public ArrayList<Bird> final_birds = new ArrayList<>();
+    long levelFinishedTime = -5000;
+    boolean markFinished = false;
     public Level() {
         levelCounter++;
         levelId = levelCounter;
@@ -64,6 +66,7 @@ public class Level implements Drawable {
                 continue;
 
             }
+            else if (!sampleBird.insideScreen()) continue;
             else{
                 finalBirdsAfter.add(sampleBird);
             }
