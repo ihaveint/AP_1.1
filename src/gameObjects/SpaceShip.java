@@ -65,6 +65,17 @@ public class SpaceShip implements Drawable{
                 powerUp.visible = false;
             }
         }
+        for  (Egg egg : GamePanel.getInstance().currentLevel.eggs){
+            if (hitEgg(egg) && egg.crashed == false){
+                egg.crashed = true;
+                if (!showWarning){
+                    heartCnt --;
+                    test.currentPercentage = 0;
+                    test.currentLayer = 1;
+                }
+                showWarning = true;
+            }
+        }
         for (Bird bird : GamePanel.getInstance().currentLevel.final_birds){
             if (hitBird(bird) && bird.died == false){
                 if (!showWarning){
@@ -98,6 +109,17 @@ public class SpaceShip implements Drawable{
 
 
 
+    }
+
+    private boolean hitEgg(Egg egg) {
+        if (showResume) return false;
+        for (Rectangle rectangle : rectangles){
+            if (egg.hit(new Rectangle(rectangle.xmin + (int)getLocation().x , rectangle.ymin +(int) getLocation().y , rectangle.xmax + (int)getLocation().x ,  rectangle.ymax + (int)getLocation().y))) {
+                return true;
+
+            }
+        }
+        return false;
     }
 
     private boolean hit(PowerUps powerUp) {

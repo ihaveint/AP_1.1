@@ -12,6 +12,7 @@ public class Egg implements Drawable {
     Image img = ImageLoader.getImage("Egg");
     String boxName = "EggBoxes.txt";
     Location location;
+    public boolean crashed = false;
     ArrayList<Rectangle> rectangles = new ArrayList<>();
 
     public Egg(Location location) {
@@ -45,9 +46,24 @@ public class Egg implements Drawable {
 
     @Override
     public void draw(Graphics g) {
+        if (crashed) return ;
         g.drawImage(img,(int)getDrawLocation().x,(int)getDrawLocation().y,null);
     }
     public void update(){
         location.y += 2;
+    }
+
+    public boolean hit(Rectangle b) {
+        if (SpaceShip.showResume) return false;
+        if (crashed) return false;
+        for (Rectangle rectangle : this.rectangles)
+        {
+            if (new Rectangle(rectangle.xmin + (int)getDrawLocation().x , rectangle.ymin + (int)getDrawLocation().y , rectangle.xmax + (int)getDrawLocation().x , rectangle.ymax + (int)getDrawLocation().y ).hit(b)) {
+                return true;
+
+            }
+        }
+
+        return false;
     }
 }
