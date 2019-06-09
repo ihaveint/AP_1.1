@@ -130,9 +130,6 @@ public class GamePanel extends FullSizePanel {
         drawHeat((int) (spaceShip.currentHeat / 100 * 16), g);
 
 
-
-
-
         for (small_explosion small_explosion : small_explosions){
             small_explosion.draw(g);
         }

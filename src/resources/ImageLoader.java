@@ -20,6 +20,7 @@ public class ImageLoader {
             hashMap.put("SpaceShip",ImageIO.read(new File("src/resources/SpaceShip.png")));
             hashMap.put("Mouse",ImageIO.read(new File("src/resources/Mouse.png")));
             hashMap.put("RedBullet",ImageIO.read(new File("src/resources/RedBullet1.png")));
+            hashMap.put("Egg",ImageIO.read(new File("src/resources/Egg.png")));
             hashMap.put("RedBullet2",ImageIO.read(new File("src/resources/red2.png")));
             hashMap.put("red_powerUp",ImageIO.read(new File("src/resources/RedBox.png")));
             hashMap.put("LogoName",ImageIO.read(new File("src/resources/Ci5logo.png")));

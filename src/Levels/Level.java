@@ -7,6 +7,7 @@ import resources.Location;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Level implements Drawable {
     long powerUpCounter = 1000;
@@ -17,6 +18,7 @@ public class Level implements Drawable {
     static ArrayList<Level> levelsInstances = new ArrayList<>();
     public ArrayList<PowerUps> powerUps = new ArrayList<>();
     public ArrayList<Bird> final_birds = new ArrayList<>();
+    public ArrayList<Egg> eggs = new ArrayList<>();
     long levelFinishedTime = -5000;
     boolean markFinished = false;
     public Level() {
@@ -33,9 +35,30 @@ public class Level implements Drawable {
 
 
 
+    long lastEgg = 1000;
+
 
     @Override
     public void draw(Graphics g) {
+
+
+        lastEgg -= 10;
+        if(lastEgg <= 0){
+
+            ArrayList<Bird> filtered = filterAlive();
+            if (!filtered.isEmpty()) {
+                Random rand = new Random();
+                int randomId = rand.nextInt(filtered.size());
+                Location birdLocation = filtered.get(randomId).birdLocation;
+                eggs.add(new Egg(new Location(birdLocation.x, birdLocation.y + 30)));
+            }
+            lastEgg = 1000;
+        }
+
+        for (Egg egg : eggs){
+            egg.draw(g);
+            egg.update();
+        }
 
         powerUpCounter -= 3;
         if (powerUpCounter <= 0){
@@ -81,6 +104,17 @@ public class Level implements Drawable {
             bird.update(GamePanel.paused || GamePanel.getInstance().spaceShip.showResume);
         }
     }
+
+    private ArrayList<Bird> filterAlive() {
+        ArrayList<Bird> ret = new ArrayList<>();
+        for (Bird bird : final_birds){
+            if (bird.died) continue;
+            ret.add(bird);
+        }
+        return ret;
+
+    }
+
     public boolean levelFinished(){
         for (Bird bird : final_birds){
 
