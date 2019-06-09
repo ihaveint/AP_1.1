@@ -24,6 +24,12 @@ public class GamePanelController {
         }
     }
 
+    public static void applyPowerUp(PowerUps powerUp) {
+        if (powerUp instanceof RedPowerUp){
+            UpgradbleShoot.upgrade();
+        }
+    }
+
 
     public void newShoot(int x , int y) {
 //        GamePanel.main.add(new shoot(x , y));

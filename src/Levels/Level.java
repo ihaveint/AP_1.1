@@ -40,9 +40,19 @@ public class Level implements Drawable {
             bird.draw(g);
         }
 
+        for (PowerUps powerUps  : powerUps){
+            if (powerUps.visible){
+                powerUps.draw(g);
+                powerUps.update();
+            }
+        }
+
+
+
         for (SampleBird sampleBird : sampleBirds){
             sampleBird.update(GamePanel.paused || GamePanel.getInstance().spaceShip.showResume);
         }
+
 
 
 

@@ -1,6 +1,7 @@
 package gameObjects;
 
 import Animations.BeCareFul.BeCareFul;
+import Controllers.GamePanelController;
 import Listener.GameMouseMotionListener;
 import menus.GamePanel;
 import resources.ImageLoader;
@@ -54,6 +55,13 @@ public class SpaceShip implements Drawable{
         if (showWarning)
             test.update();
 
+
+
+        for (PowerUps powerUp  : GamePanel.getInstance().currentLevel.powerUps){
+            if (hit(powerUp) && powerUp.visible){
+                powerUp.visible = false;
+            }
+        }
         for (SampleBird sampleBird : GamePanel.getInstance().currentLevel.sampleBirds) {
             if (hit(sampleBird) && sampleBird.died == false){
                 if (!showWarning){
@@ -90,6 +98,18 @@ public class SpaceShip implements Drawable{
 
 
 
+    }
+
+    private boolean hit(PowerUps powerUp) {
+        if (showResume) return false;
+        for (Rectangle rectangle : rectangles){
+            if (powerUp.hit(new Rectangle(rectangle.xmin + (int)getLocation().x , rectangle.ymin +(int) getLocation().y , rectangle.xmax + (int)getLocation().x ,  rectangle.ymax + (int)getLocation().y))) {
+                GamePanelController.applyPowerUp(powerUp);
+                powerUp.visible = false;
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean hitBird(Bird bird) {

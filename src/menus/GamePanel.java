@@ -61,7 +61,7 @@ public class GamePanel extends FullSizePanel {
 
         currentLevel.sampleBirds = sampleBirds;
         currentLevel.final_birds = final_birds;
-
+        currentLevel.powerUps.add(new RedPowerUp());
         Level level2 = new Level();
         level2.final_birds.add(new MorghePile());
         level2.final_birds.add(new MorghePile());
@@ -108,6 +108,7 @@ public class GamePanel extends FullSizePanel {
     long startDelay = -5000;
     public Level currentLevel = new Level();
 
+//    RedPowerUp testPowerUp = new RedPowerUp();
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -149,6 +150,10 @@ public class GamePanel extends FullSizePanel {
             tir.draw(g);
 
         }
+
+
+//        testPowerUp.draw(g);
+//        testPowerUp.update();
 
         int missileWidth , missileHeight;
         missileWidth = ImageLoader.getImage("missile").getWidth(null);
