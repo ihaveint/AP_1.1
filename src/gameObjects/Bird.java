@@ -188,6 +188,8 @@ public abstract class Bird implements Drawable{
     ArrayList<Location> bandageLocations = new ArrayList<>();
     public boolean hit(Rectangle b){
         if (SpaceShip.showResume) return false;
+        if (died) return false;
+
         for (Rectangle rectangle : this.rectangles)
         {
 
