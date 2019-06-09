@@ -114,14 +114,4 @@ public class SpaceShip implements Drawable{
         return false;
     }
 
-    public boolean hit(SampleBird sampleBird){
-        if (showResume) return false;
-        for (Rectangle rectangle : rectangles){
-            if (sampleBird.hit(new Rectangle(rectangle.xmin + (int)getLocation().x , rectangle.ymin +(int) getLocation().y , rectangle.xmax + (int)getLocation().x ,  rectangle.ymax + (int)getLocation().y))) {
-                return true;
-
-            }
-        }
-        return false;
-    }
 }

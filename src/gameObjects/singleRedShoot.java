@@ -102,18 +102,4 @@ public class singleRedShoot implements  Drawable{
         return false;
     }
 
-
-    private boolean hitChicken(SampleBird bird) {
-        for (Rectangle rectangle : this.rectangles){
-            Rectangle check = new Rectangle(rectangle.xmin + (int)shootLocation.x  - shootWidth/2, rectangle.ymin + (int)shootLocation.y -shootHeight/2 , rectangle.xmax + (int)shootLocation.x  -shootWidth/2 , rectangle.ymax + (int)shootLocation.y - shootHeight/2);
-
-            if (bird.hit(check)){
-                visible = false;
-                bird.shake(false , 300);
-                return true;
-
-            }
-        }
-        return false;
-    }
 }

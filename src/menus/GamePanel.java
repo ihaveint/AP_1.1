@@ -25,7 +25,6 @@ public class GamePanel extends FullSizePanel {
     public int shootWidth , shootHeight;
     public static Resume resumeAnimation = new Resume();
     public SpaceShip spaceShip = new SpaceShip();
-//    private static ArrayList<SampleBird> sampleBirds = new ArrayList<>();
     private static ArrayList<small_explosion> small_explosions = new ArrayList<>();
     public static ArrayList<Bird> final_birds = new ArrayList<>();
 
@@ -37,11 +36,6 @@ public class GamePanel extends FullSizePanel {
     }
 
     public static void reset() {
-//        for (SampleBird sampleBird : sampleBirds){
-//            sampleBird.hp.increasing = false;
-//            sampleBird.hp.decreasing = false;
-//            sampleBird.hp.drawPercentage = 0;
-//        }
         for (Bird bird : final_birds){
             bird.hp.increasing = false;
             bird.hp.decreasing = false;
@@ -64,9 +58,7 @@ public class GamePanel extends FullSizePanel {
         final_birds.add(new MorgheParish());
         final_birds.add(new MorgheParish());
 
-//        sampleBirds.add(new SampleBird(0,100));
 
-//        sampleBirds.add(new SampleBird(600,300));
 
 
 

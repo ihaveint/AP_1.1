@@ -16,7 +16,6 @@ public class Level implements Drawable {
     static int levelCounter = 0;
     static ArrayList<Level> levelsInstances = new ArrayList<>();
     public ArrayList<PowerUps> powerUps = new ArrayList<>();
-//    public ArrayList<SampleBird>  sampleBirds = new ArrayList<>();
     public ArrayList<Bird> final_birds = new ArrayList<>();
     public Level() {
         levelCounter++;
@@ -42,9 +41,6 @@ public class Level implements Drawable {
             Location randomLocation = RandomLocationGenerator.getRandomLocation();
             powerUps.add(new RedPowerUp((int)randomLocation.x,(int)randomLocation.y));
         }
-//        for (SampleBird sampleBird : sampleBirds){
-//            sampleBird.draw(g);
-//        }
 
         for (Bird bird : final_birds){
             bird.draw(g);
@@ -58,27 +54,9 @@ public class Level implements Drawable {
         }
 
 
-//
-//        for (SampleBird sampleBird : sampleBirds){
-//            sampleBird.update(GamePanel.paused || GamePanel.getInstance().spaceShip.showResume);
-//        }
 
 
-
-
-        ArrayList<SampleBird> sampleBirdAfter = new ArrayList<>();
         ArrayList<Bird> finalBirdsAfter =  new ArrayList<>();
-//        for (int i = 0 ; i < sampleBirds.size() ; i ++) {
-//            SampleBird sampleBird = sampleBirds.get(i);
-//            if ((System.currentTimeMillis() - sampleBird.shakeStartTime > sampleBird.shakeTime) && sampleBird.died) {
-//                continue;
-//            }
-//            else{
-//                sampleBirdAfter.add(sampleBird);
-//            }
-//        }
-//        sampleBirds = sampleBirdAfter;
-
 
         for (int i = 0 ; i < final_birds.size() ; i ++) {
             Bird sampleBird = final_birds.get(i);
@@ -101,11 +79,6 @@ public class Level implements Drawable {
         }
     }
     public boolean levelFinished(){
-//        for (SampleBird sampleBird : sampleBirds){
-//            if (sampleBird.died == false && sampleBird.isInScreen()) {
-//                return false;
-//            }
-//        }
         for (Bird bird : final_birds){
 
             if (bird.died == false) {
