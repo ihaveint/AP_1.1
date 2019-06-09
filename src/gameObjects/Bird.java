@@ -19,7 +19,7 @@ public abstract class Bird implements Drawable{
     boolean visible = true;
     static String defaultBoxName = "sampleBox2.txt";
     ArrayList<Rectangle> rectangles = new ArrayList<>();
-    Location birdLocation = new Location(200,200);
+    public Location birdLocation = new Location(200,200);
     static Image defaultImage = ImageLoader.getImage("chicken");
     public void setImage(Image img){
         this.img = img;

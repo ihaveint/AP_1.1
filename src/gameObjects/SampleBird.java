@@ -181,4 +181,10 @@ public class SampleBird implements Drawable {
     public void addBandate(int x, int y) {
         bandageLocations.add(new Location(x-ImageLoader.getImage("bandage").getWidth(null)/2,y-ImageLoader.getImage("bandage").getHeight(null)/2 ));
     }
+
+    public boolean isInScreen() {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        return x >= 0 && x <= screenSize.getWidth() && y >= 0 && y <= screenSize.getHeight();
+
+    }
 }

@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Level implements Drawable {
-    Level nextLevel = null;
+    public Level nextLevel = null;
     String displayName ;
     int levelId;
     static int levelCounter = 0;
@@ -77,5 +77,19 @@ public class Level implements Drawable {
         for (Bird bird : final_birds){
             bird.update(GamePanel.paused || GamePanel.getInstance().spaceShip.showResume);
         }
+    }
+    public boolean levelFinished(){
+        for (SampleBird sampleBird : sampleBirds){
+            if (sampleBird.died == false && sampleBird.isInScreen()) {
+                return false;
+            }
+        }
+        for (Bird bird : final_birds){
+
+            if (bird.died == false) {
+                return false;
+            }
+        }
+        return true;
     }
 }

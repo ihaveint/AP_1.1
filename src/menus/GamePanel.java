@@ -3,6 +3,7 @@ package menus;
 import Animations.Resume.Resume;
 import Animations.explosions.small_explosion;
 import Levels.Level;
+import Levels.LevelManager;
 import Listener.GameKeyListener;
 import Listener.GameMouseListener;
 import Listener.GameMouseMotionListener;
@@ -60,6 +61,11 @@ public class GamePanel extends FullSizePanel {
         currentLevel.sampleBirds = sampleBirds;
         currentLevel.final_birds = final_birds;
 
+        Level level2 = new Level();
+        level2.final_birds.add(new MorghePile());
+        level2.final_birds.add(new MorghePile());
+        level2.final_birds.get(0).birdLocation = new Location(600,600);
+        currentLevel.nextLevel = level2;
         spaceShipWidth = ImageLoader.getImage("SpaceShip").getWidth(null);
         spaceShipHeight = ImageLoader.getImage("SpaceShip").getHeight(null);
         shootWidth = ImageLoader.getImage("RedBullet").getWidth(null);
@@ -152,6 +158,8 @@ public class GamePanel extends FullSizePanel {
         }
 
 
+        LevelManager.getInstance().update();
+        currentLevel = LevelManager.getInstance().currentLevel;
         currentLevel.draw(g);
 //
 //        for (SampleBird sampleBird : sampleBirds){
