@@ -15,9 +15,17 @@ public class LevelManager {
         currentLevel = GamePanel.getInstance().currentLevel;
     }
 
+    long levelFinishedTime = -5000;
+    boolean markFinished = false;
     public void update(){
         if (currentLevel.levelFinished() && currentLevel.nextLevel != null){
-            currentLevel = currentLevel.nextLevel;
+            if(!markFinished) {
+                levelFinishedTime = System.currentTimeMillis();
+                markFinished = true;
+            }
+
+            if (System.currentTimeMillis()-levelFinishedTime > 5000)
+                currentLevel = currentLevel.nextLevel;
         }
     }
 }
