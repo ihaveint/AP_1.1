@@ -63,6 +63,15 @@ public class SpaceShip implements Drawable{
                 showWarning = true;
             }
         }
+        for (Bird bird : GamePanel.final_birds){
+            if (hitBird(bird) && bird.died == false){
+                if (!showWarning){
+                    test.currentPercentage = 0;
+                    test.currentLayer = 1;
+                }
+                showWarning = true;
+            }
+        }
         if (showWarning){
             warningPercent += 0.0025;
             if( warningPercent >= 1){
@@ -82,6 +91,18 @@ public class SpaceShip implements Drawable{
 
 
     }
+
+    private boolean hitBird(Bird bird) {
+        if (showResume) return false;
+        for (Rectangle rectangle : rectangles){
+            if (bird.hit(new Rectangle(rectangle.xmin + (int)getLocation().x , rectangle.ymin +(int) getLocation().y , rectangle.xmax + (int)getLocation().x ,  rectangle.ymax + (int)getLocation().y))) {
+                return true;
+
+            }
+        }
+        return false;
+    }
+
     public boolean hit(SampleBird sampleBird){
         if (showResume) return false;
         for (Rectangle rectangle : rectangles){

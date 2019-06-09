@@ -67,7 +67,7 @@ public class shoot implements Drawable{
             if (bird.hit(check)){
                 whichRect = check;
                 visible = false;
-//                bird.shake(false , 300);
+                bird.shake(false , 300);
                 return true;
 
             }

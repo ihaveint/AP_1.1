@@ -51,9 +51,11 @@ public class GamePanel extends FullSizePanel {
 
         final_birds.add(new MorgheEntehari());
         final_birds.add(new MorgheEntehari());
+        final_birds.add(new MorghePile());
         sampleBirds.add(new SampleBird(0,100));
 
         sampleBirds.add(new SampleBird(600,300));
+
         spaceShipWidth = ImageLoader.getImage("SpaceShip").getWidth(null);
         spaceShipHeight = ImageLoader.getImage("SpaceShip").getHeight(null);
         shootWidth = ImageLoader.getImage("RedBullet").getWidth(null);
